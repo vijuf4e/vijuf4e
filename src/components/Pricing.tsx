@@ -86,8 +86,10 @@ function PricingCard({ tier }: { tier: PricingTier }) {
         ))}
       </ul>
 
-      <Button className="w-full" size="lg">
-        Buy Now
+      <Button className="w-full" size="lg" asChild>
+        <a href="https://discord.com/invite/DZMMTwWbs2" target="_blank" rel="noopener noreferrer">
+          Buy Now
+        </a>
       </Button>
       {tier.note && (
         <p className="text-center text-xs text-muted-foreground mt-3">{tier.note}</p>

@@ -13,7 +13,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-10">
           <div className="text-center md:text-left">
             <a
-              href="#"
+              href="https://discord.com/invite/DZMMTwWbs2"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg bg-[#5865F2] hover:bg-[#4752C4] text-white px-6 py-3 font-medium transition-colors"

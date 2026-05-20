@@ -29,7 +29,7 @@ export function Navbar() {
         </div>
 
         <Button variant="outline" size="sm" className="gap-2" asChild>
-          <a href="#" target="_blank" rel="noopener noreferrer">
+          <a href="https://discord.com/invite/DZMMTwWbs2" target="_blank" rel="noopener noreferrer">
             <DiscordIcon className="h-4 w-4" />
             <span className="hidden sm:inline">Discord</span>
           </a>
