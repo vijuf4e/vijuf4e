@@ -20,9 +20,7 @@ const tiers: PricingTier[] = [
     discount: "",
     features: [
       "All core features",
-      "Auto updates",
       "Priority support",
-      "Stream proof",
       "Config presets",
     ],
     note: "",
@@ -34,9 +32,7 @@ const tiers: PricingTier[] = [
     discount: "-25% OFF",
     features: [
       "All core features",
-      "Auto updates",
       "Premium support",
-      "Stream proof",
       "Config presets",
     ],
     popular: true,
