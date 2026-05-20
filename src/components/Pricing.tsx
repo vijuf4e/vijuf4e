@@ -21,8 +21,8 @@ const tiers: PricingTier[] = [
     features: [
       "All core features",
       "Priority support",
-      "Advanced Config presets",
-      "Multi Color Based",
+      "Advanced config presets",
+      "Multi color based",
     ],
     note: "",
   },
@@ -34,11 +34,11 @@ const tiers: PricingTier[] = [
     features: [
       "All core features",
       "Priority support",
-      "Advanced Config presets",
-      "Multi Color Based",
+      "Advanced config presets",
+      "Multi color based",
     ],
     popular: true,
-    note: "Save up to 25%!",
+    note: "",
   },
 ]
 
