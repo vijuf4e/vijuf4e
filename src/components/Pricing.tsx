@@ -14,9 +14,9 @@ interface PricingTier {
 
 const tiers: PricingTier[] = [
   {
-    duration: "1 Week",
+    duration: "2 Weeks",
     originalPrice: "",
-    price: "$10",
+    price: "$20",
     discount: "",
     features: [
       "All core features",
@@ -28,9 +28,9 @@ const tiers: PricingTier[] = [
   },
   {
     duration: "1 Month",
-    originalPrice: "$40",
-    price: "$30",
-    discount: "-25% OFF",
+    originalPrice: "",
+    price: "$40",
+    discount: "",
     features: [
       "All core features",
       "Priority support",
