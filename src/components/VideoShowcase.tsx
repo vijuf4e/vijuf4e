@@ -36,7 +36,7 @@ export function VideoShowcase() {
         <div className="mt-12 flex justify-center">
           <div className="rounded-xl overflow-hidden border border-border bg-card p-2">
             <img
-              src="/product-preview.png"
+              src="/product-preview.png?v=2"
               alt="Product Preview"
               className="rounded-lg"
               style={{ imageRendering: "auto", width: "auto", height: "auto" }}
