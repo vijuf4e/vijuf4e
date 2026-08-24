@@ -33,13 +33,19 @@ export function VideoShowcase() {
           </div>
         </div>
 
-        <div className="mt-12 flex justify-center">
+        <div className="mt-12 grid md:grid-cols-2 gap-6">
           <div className="rounded-xl overflow-hidden border border-border bg-card p-2">
             <img
-              src="/product-preview.png?v=2"
-              alt="Product Preview"
-              className="rounded-lg"
-              style={{ imageRendering: "auto", width: "auto", height: "auto" }}
+              src="/main-configs.png"
+              alt="Configs Panel"
+              className="rounded-lg w-full h-auto"
+            />
+          </div>
+          <div className="rounded-xl overflow-hidden border border-border bg-card p-2">
+            <img
+              src="/main-settings.png"
+              alt="Settings Panel"
+              className="rounded-lg w-full h-auto"
             />
           </div>
         </div>
