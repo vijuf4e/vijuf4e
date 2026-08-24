@@ -1,4 +1,8 @@
+import { useState } from "react"
+
 export function VideoShowcase() {
+  const [lightbox, setLightbox] = useState<string | null>(null)
+
   return (
     <section id="videos" className="py-20 px-6">
       <div className="mx-auto max-w-6xl">
@@ -36,20 +40,36 @@ export function VideoShowcase() {
         <div className="mt-12 grid md:grid-cols-2 gap-6">
           <div className="rounded-xl overflow-hidden border border-border bg-card p-2">
             <img
-              src="/main-configs.png"
-              alt="Configs Panel"
-              className="rounded-lg w-full h-auto"
+              src="/main-settings.png"
+              alt="Settings Panel"
+              className="rounded-lg w-full h-auto cursor-pointer transition-opacity hover:opacity-80"
+              onClick={() => setLightbox("/main-settings.png")}
             />
           </div>
           <div className="rounded-xl overflow-hidden border border-border bg-card p-2">
             <img
-              src="/main-settings.png"
-              alt="Settings Panel"
-              className="rounded-lg w-full h-auto"
+              src="/main-configs.png"
+              alt="Configs Panel"
+              className="rounded-lg w-full h-auto cursor-pointer transition-opacity hover:opacity-80"
+              onClick={() => setLightbox("/main-configs.png")}
             />
           </div>
         </div>
       </div>
+
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm cursor-pointer"
+          onClick={() => setLightbox(null)}
+        >
+          <img
+            src={lightbox}
+            alt="Zoomed Preview"
+            className="max-w-[90vw] max-h-[90vh] rounded-lg shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </section>
   )
 }
