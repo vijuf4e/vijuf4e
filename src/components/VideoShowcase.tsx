@@ -37,21 +37,13 @@ export function VideoShowcase() {
           </div>
         </div>
 
-        <div className="mt-12 grid md:grid-cols-2 gap-6">
-          <div className="rounded-xl overflow-hidden border border-border bg-card p-2">
+        <div className="mt-12 flex justify-center">
+          <div className="rounded-xl overflow-hidden border border-border bg-card p-2 w-full max-w-3xl">
             <img
-              src="/main-settings.png"
-              alt="Settings Panel"
+              src="/menu-preview.png"
+              alt="Xweardes Menu"
               className="rounded-lg w-full h-auto cursor-pointer transition-opacity hover:opacity-80"
-              onClick={() => setLightbox("/main-settings.png")}
-            />
-          </div>
-          <div className="rounded-xl overflow-hidden border border-border bg-card p-2">
-            <img
-              src="/main-configs.png"
-              alt="Configs Panel"
-              className="rounded-lg w-full h-auto cursor-pointer transition-opacity hover:opacity-80"
-              onClick={() => setLightbox("/main-configs.png")}
+              onClick={() => setLightbox("/menu-preview.png")}
             />
           </div>
         </div>

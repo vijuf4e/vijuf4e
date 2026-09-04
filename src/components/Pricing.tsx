@@ -14,22 +14,9 @@ interface PricingTier {
 
 const tiers: PricingTier[] = [
   {
-    duration: "2 Weeks",
-    originalPrice: "",
-    price: "$20",
-    discount: "",
-    features: [
-      "All core features",
-      "Priority support",
-      "Advanced config presets",
-      "Multi color based",
-    ],
-    note: "",
-  },
-  {
     duration: "1 Month",
     originalPrice: "",
-    price: "$40",
+    price: "$20",
     discount: "",
     features: [
       "All core features",
@@ -104,10 +91,10 @@ export function Pricing() {
           Our Pricing
         </h2>
         <p className="text-muted-foreground text-center mb-12 max-w-xl mx-auto">
-          Choose the plan that fits your needs. All plans include full access to our tools.
+          One simple plan with full access to all of our tools.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-6 items-stretch max-w-3xl mx-auto">
+        <div className="grid gap-6 items-stretch max-w-sm mx-auto">
           {tiers.map((tier) => (
             <PricingCard key={tier.duration} tier={tier} />
           ))}
