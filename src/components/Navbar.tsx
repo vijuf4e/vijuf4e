@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button"
-
 function DiscordIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -33,16 +31,19 @@ export function Navbar() {
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" className="gap-2" asChild>
-            <a href="https://discord.com/invite/Ct8eBkTvyq" target="_blank" rel="noopener noreferrer">
-              <DiscordIcon className="h-4 w-4" />
-              <span className="hidden sm:inline">Discord</span>
-            </a>
-          </Button>
-          <Button size="sm" asChild>
-            <a href="#pricing">Get Started</a>
-          </Button>
+        <div className="flex items-center gap-6">
+          <a
+            href="https://discord.com/invite/Ct8eBkTvyq"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <DiscordIcon className="h-4 w-4" />
+            <span className="hidden sm:inline">Discord</span>
+          </a>
+          <a href="#pricing" className="text-sm font-medium text-foreground hover:text-foreground/80 transition-colors">
+            Get Started
+          </a>
         </div>
       </div>
     </nav>

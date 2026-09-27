@@ -9,9 +9,9 @@ export function Footer() {
           href="https://cheatglobal.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center rounded-lg border border-border bg-card hover:bg-accent px-4 py-2 transition-colors"
+          className="inline-flex items-center hover:opacity-80 transition-opacity"
         >
-          <img src="/cheatglobal-logo.png" alt="CheatGlobal" className="h-6" />
+          <img src="/cheatglobal-logo.png" alt="CheatGlobal" className="h-8" />
         </a>
       </div>
     </footer>
