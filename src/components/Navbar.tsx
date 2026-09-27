@@ -10,30 +10,40 @@ function DiscordIcon({ className }: { className?: string }) {
 
 export function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl">
       <div className="mx-auto max-w-6xl flex items-center justify-between px-6 h-16">
-        <a href="#" className="text-xl font-bold tracking-tight text-foreground">
-          Xweardes
-        </a>
+        <div className="flex items-center gap-10">
+          <a href="#" aria-label="Xweardes">
+            <img src="/logo-w.png" alt="Xweardes" className="h-9 w-9" />
+          </a>
 
-        <div className="hidden md:flex items-center gap-8">
-          <a href="#videos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            Showcase
-          </a>
-          <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            Pricing
-          </a>
-          <a href="#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            Contact
-          </a>
+          <div className="hidden md:flex items-center gap-6">
+            <a href="#videos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Showcase
+            </a>
+            <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Features
+            </a>
+            <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Pricing
+            </a>
+            <a href="#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Contact
+            </a>
+          </div>
         </div>
 
-        <Button variant="outline" size="sm" className="gap-2" asChild>
-          <a href="https://discord.com/invite/Ct8eBkTvyq" target="_blank" rel="noopener noreferrer">
-            <DiscordIcon className="h-4 w-4" />
-            <span className="hidden sm:inline">Discord</span>
-          </a>
-        </Button>
+        <div className="flex items-center gap-2">
+          <Button variant="outline" size="sm" className="gap-2" asChild>
+            <a href="https://discord.com/invite/Ct8eBkTvyq" target="_blank" rel="noopener noreferrer">
+              <DiscordIcon className="h-4 w-4" />
+              <span className="hidden sm:inline">Discord</span>
+            </a>
+          </Button>
+          <Button size="sm" asChild>
+            <a href="#pricing">Get Started</a>
+          </Button>
+        </div>
       </div>
     </nav>
   )
