@@ -72,7 +72,7 @@ function PricingCard({ tier }: { tier: PricingTier }) {
       </ul>
 
       <Button className="w-full" size="lg" asChild>
-        <a href="https://discord.com/invite/DZMMTwWbs2" target="_blank" rel="noopener noreferrer">
+        <a href="https://discord.com/invite/Ct8eBkTvyq" target="_blank" rel="noopener noreferrer">
           Buy Now
         </a>
       </Button>
