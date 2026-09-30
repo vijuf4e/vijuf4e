@@ -1,3 +1,5 @@
+import { linkTo } from "@/lib/router"
+
 function DiscordIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -6,29 +8,40 @@ function DiscordIcon({ className }: { className?: string }) {
   )
 }
 
-export function Navbar() {
+const sectionLinks: Record<string, { href: string; label: string }[]> = {
+  "/valorant": [
+    { href: "#videos", label: "Showcase" },
+    { href: "#features", label: "Features" },
+    { href: "#pricing", label: "Pricing" },
+    { href: "#contact", label: "Contact" },
+  ],
+  "/metin2": [
+    { href: "#gallery", label: "Gallery" },
+    { href: "#pricing", label: "Pricing" },
+    { href: "#contact", label: "Contact" },
+  ],
+}
+
+export function Navbar({ path }: { path: string }) {
+  const links = sectionLinks[path]
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl">
       <div className="mx-auto max-w-6xl flex items-center justify-between px-6 h-16">
         <div className="flex items-center gap-10">
-          <a href="#" aria-label="Xweardes">
+          <a href="/" onClick={linkTo("/")} aria-label="Xweardes">
             <img src="/logo-w.png" alt="Xweardes" className="h-9 w-9" />
           </a>
 
-          <div className="hidden md:flex items-center gap-6">
-            <a href="#videos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Showcase
-            </a>
-            <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Features
-            </a>
-            <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Pricing
-            </a>
-            <a href="#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Contact
-            </a>
-          </div>
+          {links && (
+            <div className="hidden md:flex items-center gap-6">
+              {links.map(({ href, label }) => (
+                <a key={href} href={href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  {label}
+                </a>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="flex items-center gap-6">
@@ -41,9 +54,11 @@ export function Navbar() {
             <DiscordIcon className="h-4 w-4" />
             <span className="hidden sm:inline">Discord</span>
           </a>
-          <a href="#pricing" className="text-sm font-medium text-foreground hover:text-foreground/80 transition-colors">
-            Get Started
-          </a>
+          {links && (
+            <a href="#pricing" className="text-sm font-medium text-foreground hover:text-foreground/80 transition-colors">
+              Get Started
+            </a>
+          )}
         </div>
       </div>
     </nav>
