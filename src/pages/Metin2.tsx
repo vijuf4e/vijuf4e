@@ -9,7 +9,7 @@ export function Metin2() {
           <div className="flex flex-col gap-3">
             <span className="text-sm font-medium text-muted-foreground">Xweardes / Metin2</span>
             <h1 className="text-5xl md:text-6xl font-extrabold tracking-tighter leading-none text-foreground">
-              Run More Clients
+              [BETA]
             </h1>
           </div>
           <p className="text-base text-muted-foreground max-w-sm leading-relaxed">
