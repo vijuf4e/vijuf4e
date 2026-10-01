@@ -42,11 +42,11 @@ export function Gallery() {
   }, [lightbox])
 
   const arrowClass =
-    "absolute top-1/2 -translate-y-1/2 h-10 w-10 rounded-full border border-border bg-background/70 backdrop-blur flex items-center justify-center text-foreground transition-opacity hover:bg-background disabled:opacity-0"
+    "absolute top-1/2 -translate-y-1/2 h-10 w-10 rounded-full border border-border bg-surface/70 backdrop-blur hover:border-gold-line hover:text-primary flex items-center justify-center text-foreground transition-opacity hover:bg-background disabled:opacity-0"
 
   return (
     <section id="gallery" className="pb-16 px-6 scroll-mt-24">
-      <div className="mx-auto max-w-[1440px] relative">
+      <div className="mx-auto max-w-6xl relative glass overflow-hidden">
         <div
           ref={trackRef}
           onScroll={onScroll}
@@ -73,7 +73,7 @@ export function Gallery() {
                     allowFullScreen
                   />
                 ) : (
-                  <div className="w-full h-full bg-card flex flex-col items-center justify-center gap-2 text-muted-foreground">
+                  <div className="w-full h-full bg-surface-2 flex flex-col items-center justify-center gap-2 text-muted-foreground">
                     <ImageIcon className="h-8 w-8" strokeWidth={1.5} />
                     <span className="text-sm">Screenshot {i + 1}</span>
                   </div>

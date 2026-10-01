@@ -6,9 +6,9 @@ const videos = [
 export function VideoShowcase() {
   return (
     <section id="videos" className="pb-16 px-6 scroll-mt-24">
-      <div className="mx-auto max-w-[1440px] grid md:grid-cols-2 gap-6">
+      <div className="mx-auto max-w-6xl grid md:grid-cols-2 gap-4">
         {videos.map((src) => (
-          <div key={src} className="rounded-xl overflow-hidden border border-border bg-card">
+          <div key={src} className="glass glass-hover">
             <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
               <iframe
                 src={src}

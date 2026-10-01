@@ -1,18 +1,31 @@
+import { Button } from "@/components/ui/button"
+
 export function Hero() {
   return (
-    <section className="pt-28 pb-8 px-6">
-      <div className="mx-auto max-w-6xl flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-        <div className="flex flex-col gap-3">
-          <span className="text-sm font-medium text-muted-foreground">
-            Xweardes / Advanced Color Trigger
-          </span>
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tighter leading-none text-foreground">
-            Level Up Your Game
+    <section className="pt-36 pb-14 px-6">
+      <div className="mx-auto max-w-6xl flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+        <div className="flex flex-col">
+          <span className="section-label mb-4">Valorant · Color Trigger</span>
+          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.04] text-foreground text-balance">
+            Every value,
+            <br />
+            <span className="text-primary">yours to tune.</span>
           </h1>
         </div>
-        <p className="text-base text-muted-foreground max-w-sm leading-relaxed">
-          Premium tools designed to give you the competitive edge. Fast, reliable, and undetected.
-        </p>
+        <div className="flex flex-col gap-5 max-w-md">
+          <p className="text-[15px] text-muted-foreground leading-relaxed">
+            Up to three target colors, spray and tap modes, and precision timing sliders. Save your setup and share it as a code.
+          </p>
+          <p className="slogan">// fov 4 · color range 70 · tap speed 10 //</p>
+          <div className="flex flex-wrap gap-3">
+            <Button size="lg" asChild>
+              <a href="#pricing">Buy now · $20/mo</a>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <a href="#videos">Watch showcase</a>
+            </Button>
+          </div>
+        </div>
       </div>
     </section>
   )

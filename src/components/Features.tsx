@@ -18,11 +18,19 @@ const features: Feature[] = [
 
 export function Features() {
   return (
-    <section id="features" className="pb-16 px-6 scroll-mt-24">
-      <div className="mx-auto max-w-6xl grid sm:grid-cols-2 lg:grid-cols-3 gap-px rounded-xl overflow-hidden border border-border bg-border">
+    <section id="features" className="pt-8 pb-20 px-6 scroll-mt-24">
+      <div className="mx-auto max-w-6xl flex flex-col gap-3 mb-8">
+        <span className="section-label">Features</span>
+        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
+          Built different. <span className="text-primary">Built by players.</span>
+        </h2>
+      </div>
+      <div className="mx-auto max-w-6xl grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {features.map(({ icon: Icon, title, description }) => (
-          <div key={title} className="bg-background p-7 flex flex-col gap-3.5">
-            <Icon className="h-6 w-6 text-foreground" strokeWidth={1.8} />
+          <div key={title} className="glass glass-hover p-7 flex flex-col gap-2">
+            <span className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl border border-gold-line bg-gold-dim text-primary">
+              <Icon className="h-[18px] w-[18px]" strokeWidth={1.8} />
+            </span>
             <h3 className="font-semibold text-foreground">{title}</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
           </div>

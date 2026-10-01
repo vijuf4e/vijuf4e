@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer id="contact" className="border-t border-border py-7 px-6">
+    <footer id="contact" className="border-t border-border bg-surface py-7 px-6">
       <div className="mx-auto max-w-6xl flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-xs text-muted-foreground">
           &copy; {new Date().getFullYear()} Xweardes. All rights reserved.

@@ -1,43 +1,99 @@
+import { ArrowRight } from "lucide-react"
 import { linkTo } from "@/lib/router"
+import { Button } from "@/components/ui/button"
+import { Tag } from "@/components/ui/tag"
+import { Ticker } from "@/components/Ticker"
 
-// glow classes are written out in full so Tailwind can pick them up
 const games = [
   {
     name: "Valorant",
+    product: "Color Trigger",
+    description: "3 target colors · spray & tap modes",
     href: "/valorant",
     logo: "/valorant.png",
-    logoClass: "h-28 md:h-36",
-    glowClass: "group-hover:drop-shadow-[0_0_28px_rgba(255,70,85,0.45)]",
+    logoClass: "h-7",
+    status: { label: "Available", tone: "green" as const },
+    price: "$20",
+    period: "per month",
   },
   {
     name: "Metin2",
+    product: "Multi-Client",
+    description: "6 clients side by side in one window",
     href: "/metin2",
     logo: "/metin2.png",
-    logoClass: "w-4/5 max-w-[320px]",
-    glowClass: "group-hover:drop-shadow-[0_0_28px_rgba(230,150,60,0.4)]",
+    logoClass: "w-11",
+    status: { label: "Beta", tone: "yellow" as const },
+    price: "400₺",
+    period: "10 days",
   },
 ]
 
 export function Home() {
   return (
-    <section className="flex-1 pt-16 pb-24 px-6 flex items-center">
-      <div className="group/grid mx-auto max-w-6xl w-full grid md:grid-cols-2 gap-6">
-        {games.map((game) => (
-          <a
-            key={game.name}
-            href={game.href}
-            onClick={linkTo(game.href)}
-            aria-label={game.name}
-            className="group py-10 flex items-center justify-center transition-opacity duration-500 ease-out group-has-[a:hover]/grid:opacity-40 hover:!opacity-100 focus-visible:outline-none motion-reduce:transition-none"
-          >
-            <img
-              src={game.logo}
-              alt={game.name}
-              className={`${game.logoClass} ${game.glowClass} object-contain transition-all duration-500 ease-out group-hover:-translate-y-1.5 group-hover:scale-[1.03] group-focus-visible:-translate-y-1.5 motion-reduce:transition-none`}
-            />
-          </a>
-        ))}
-      </div>
-    </section>
+    <div className="flex flex-1 flex-col">
+      <section className="flex flex-1 items-center px-6 pt-36 pb-20">
+        <div className="mx-auto w-full grid max-w-6xl items-center gap-12 lg:grid-cols-2">
+          <div className="flex flex-col">
+            <span className="section-label mb-4">Built by players</span>
+            <h1 className="text-5xl font-extrabold leading-[1.04] tracking-tight text-foreground md:text-6xl text-balance">
+              We tune it.
+              <br />
+              <span className="text-primary">You play it.</span>
+            </h1>
+            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted-foreground">
+              Color trigger for Valorant and multi-client control for Metin2. Set it up in minutes, then tune every value to your style.
+            </p>
+            <p className="slogan mt-6">// built by players // tuned for players //</p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Button size="lg" asChild>
+                <a href="/metin2" onClick={linkTo("/metin2")}>
+                  Metin2 · 400₺ <ArrowRight />
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <a href="/valorant" onClick={linkTo("/valorant")}>
+                  Valorant · $20
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          <div className="glass glass-lit flex flex-col gap-1.5 p-1.5">
+            <div className="flex items-center justify-between px-3.5 pt-3 pb-2 font-mono text-[11px] font-bold tracking-wider text-subtle">
+              <span>// PRODUCTS</span>
+              <span>v1.0.0</span>
+            </div>
+            {games.map((game) => (
+              <a
+                key={game.name}
+                href={game.href}
+                onClick={linkTo(game.href)}
+                className="group grid grid-cols-[48px_1fr_auto] items-center gap-4 rounded-[10px] border border-border bg-white/[0.02] p-4 transition-colors hover:border-gold-line hover:bg-gold-dim"
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-[10px] border border-border bg-surface-2">
+                  <img src={game.logo} alt="" className={`${game.logoClass} object-contain`} />
+                </span>
+                <span className="min-w-0">
+                  <span className="block font-bold text-foreground">
+                    {game.name} · {game.product}
+                  </span>
+                  <span className="block truncate font-mono text-xs text-muted-foreground">{game.description}</span>
+                </span>
+                <span className="flex flex-col items-end gap-1.5">
+                  <Tag tone={game.status.tone} dot>
+                    {game.status.label}
+                  </Tag>
+                  <span className="font-mono text-base font-bold text-foreground">
+                    {game.price} <span className="text-[10px] font-medium text-subtle">{game.period}</span>
+                  </span>
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+      <Ticker />
+    </div>
   )
 }

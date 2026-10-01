@@ -8,59 +8,61 @@ function DiscordIcon({ className }: { className?: string }) {
   )
 }
 
-const sectionLinks: Record<string, { href: string; label: string }[]> = {
-  "/valorant": [
-    { href: "#videos", label: "Showcase" },
-    { href: "#features", label: "Features" },
-    { href: "#pricing", label: "Pricing" },
-    { href: "#contact", label: "Contact" },
-  ],
-  "/metin2": [
-    { href: "#gallery", label: "Gallery" },
-    { href: "#pricing", label: "Pricing" },
-    { href: "#contact", label: "Contact" },
-  ],
+const pages = [
+  { href: "/", label: "Home" },
+  { href: "/valorant", label: "Valorant" },
+  { href: "/metin2", label: "Metin2" },
+]
+
+const ctaLabels: Record<string, string> = {
+  "/valorant": "Buy · $20",
+  "/metin2": "Buy · 400₺",
 }
 
 export function Navbar({ path }: { path: string }) {
-  const links = sectionLinks[path]
+  const cta = ctaLabels[path]
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl">
-      <div className="mx-auto max-w-6xl flex items-center justify-between px-6 h-16">
-        <div className="flex items-center gap-10">
-          <a href="/" onClick={linkTo("/")} aria-label="Xweardes">
-            <img src="/logo-w.png" alt="Xweardes" className="h-9 w-9" />
-          </a>
+    <div className="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
+      <nav className="flex max-w-full items-center gap-1 rounded-full border border-border bg-surface/65 py-1.5 pl-3.5 pr-1.5 backdrop-blur-xl backdrop-saturate-[1.8]">
+        <a href="/" onClick={linkTo("/")} aria-label="Xweardes" className="mr-2 flex items-center gap-2 text-sm font-extrabold text-primary">
+          <img src="/logo-w.png" alt="" className="h-6 w-6" />
+          <span className="hidden sm:inline">Xweardes</span>
+        </a>
 
-          {links && (
-            <div className="hidden md:flex items-center gap-6">
-              {links.map(({ href, label }) => (
-                <a key={href} href={href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  {label}
-                </a>
-              ))}
-            </div>
-          )}
-        </div>
-
-        <div className="flex items-center gap-6">
+        {pages.map(({ href, label }) => (
           <a
-            href="https://discord.com/invite/Ct8eBkTvyq"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            key={href}
+            href={href}
+            onClick={linkTo(href)}
+            aria-current={path === href ? "page" : undefined}
+            className={`${href === "/" ? "hidden sm:inline-block" : ""} whitespace-nowrap rounded-full px-2.5 sm:px-3 py-1.5 text-xs font-medium transition-colors ${
+              path === href ? "bg-gold-dim text-primary" : "text-muted-foreground hover:bg-white/[0.04] hover:text-foreground"
+            }`}
           >
-            <DiscordIcon className="h-4 w-4" />
-            <span className="hidden sm:inline">Discord</span>
+            {label}
           </a>
-          {links && (
-            <a href="#pricing" className="text-sm font-medium text-foreground hover:text-foreground/80 transition-colors">
-              Get Started
-            </a>
-          )}
-        </div>
-      </div>
-    </nav>
+        ))}
+
+        <a
+          href="https://discord.com/invite/Ct8eBkTvyq"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Discord"
+          className="rounded-full px-2.5 py-1.5 text-muted-foreground transition-colors hover:bg-white/[0.04] hover:text-foreground"
+        >
+          <DiscordIcon className="h-4 w-4" />
+        </a>
+
+        {cta && (
+          <a
+            href="#pricing"
+            className="ml-1 whitespace-nowrap rounded-full bg-primary px-4 py-1.5 text-[11px] font-bold text-primary-foreground transition-transform hover:scale-[1.04]"
+          >
+            {cta}
+          </a>
+        )}
+      </nav>
+    </div>
   )
 }

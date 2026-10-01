@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+import { Tag } from "@/components/ui/tag"
 
 export function Pricing() {
   const [lightbox, setLightbox] = useState(false)
@@ -15,18 +15,18 @@ export function Pricing() {
             alt="Xweardes Menu"
             width={704}
             height={761}
-            className="rounded-lg w-auto max-w-full h-auto cursor-zoom-in"
+            className="glass rounded-[14px] w-auto max-w-full h-auto cursor-zoom-in"
             onClick={() => setLightbox(true)}
           />
         </div>
 
-        <div className="w-full lg:w-[340px] shrink-0 flex flex-col gap-6">
+        <div className="glass glass-lit w-full lg:w-[340px] shrink-0 flex flex-col gap-6 p-7 shadow-[0_0_0_1px_var(--gold-dim),0_20px_60px_-20px_var(--gold-glow)]">
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold text-foreground">1 Month</h3>
-            <Badge>Popular</Badge>
+            <Tag dot>Popular</Tag>
           </div>
           <div className="flex items-baseline gap-1.5">
-            <span className="text-6xl font-extrabold tracking-tighter text-foreground">$20</span>
+            <span className="font-mono text-6xl font-bold tracking-tight text-foreground">$20</span>
             <span className="text-muted-foreground">/month</span>
           </div>
           <p className="text-sm text-muted-foreground leading-relaxed">
