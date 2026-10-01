@@ -1,8 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from "react"
 import { ChevronLeft, ChevronRight, ImageIcon } from "lucide-react"
 
-// Add screenshots to public/metin2/ and list them here
-const images: string[] = ["/metin2/running.png"]
+type Slide = { type: "image"; src: string } | { type: "video"; youtubeId: string }
+
+// Add screenshots to public/metin2/ (or YouTube video IDs) and list them here
+const slides: Slide[] = [
+  { type: "image", src: "/metin2/running.png" },
+  { type: "video", youtubeId: "r5rVcPRuus4" },
+]
+const images = slides.flatMap((s) => (s.type === "image" ? [s.src] : []))
 // Empty slots show a placeholder until real screenshots are added
 const placeholderCount = 4
 
@@ -10,7 +16,7 @@ export function Gallery() {
   const trackRef = useRef<HTMLDivElement>(null)
   const [active, setActive] = useState(0)
   const [lightbox, setLightbox] = useState<number | null>(null)
-  const slideCount = Math.max(images.length, placeholderCount)
+  const slideCount = Math.max(slides.length, placeholderCount)
 
   const scrollTo = useCallback((index: number) => {
     const track = trackRef.current
@@ -46,24 +52,35 @@ export function Gallery() {
           onScroll={onScroll}
           className="flex overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          {Array.from({ length: slideCount }, (_, i) => (
-            <div key={i} className="w-full shrink-0 snap-center aspect-[2772/1198] flex items-center justify-center">
-              {images[i] ? (
-                <img
-                  src={images[i]}
-                  alt={`Metin2 screenshot ${i + 1}`}
-                  className="w-full h-full object-contain cursor-zoom-in"
-                  onClick={() => setLightbox(i)}
-                  draggable={false}
-                />
-              ) : (
-                <div className="w-full h-full bg-card flex flex-col items-center justify-center gap-2 text-muted-foreground">
-                  <ImageIcon className="h-8 w-8" strokeWidth={1.5} />
-                  <span className="text-sm">Screenshot {i + 1}</span>
-                </div>
-              )}
-            </div>
-          ))}
+          {Array.from({ length: slideCount }, (_, i) => {
+            const slide = slides[i]
+            return (
+              <div key={i} className="w-full shrink-0 snap-center aspect-[2772/1198] flex items-center justify-center">
+                {slide?.type === "image" ? (
+                  <img
+                    src={slide.src}
+                    alt={`Metin2 screenshot ${i + 1}`}
+                    className="w-full h-full object-contain cursor-zoom-in"
+                    onClick={() => setLightbox(images.indexOf(slide.src))}
+                    draggable={false}
+                  />
+                ) : slide?.type === "video" ? (
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${slide.youtubeId}?rel=0`}
+                    title={`Metin2 video ${i + 1}`}
+                    className="h-full max-w-full aspect-video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                ) : (
+                  <div className="w-full h-full bg-card flex flex-col items-center justify-center gap-2 text-muted-foreground">
+                    <ImageIcon className="h-8 w-8" strokeWidth={1.5} />
+                    <span className="text-sm">Screenshot {i + 1}</span>
+                  </div>
+                )}
+              </div>
+            )
+          })}
         </div>
 
         <button
