@@ -14,8 +14,6 @@ const BUY_URL = "https://api.xweardes.com/buy?product="
 // Prices must match the Game24card panel. Add new packages here; tabs and durations are built from this list
 const packages: Package[] = [
   { clients: 6, days: 10, price: "$10", productId: 363748 },
-  { clients: 12, days: 10, price: "$15", productId: 697123 },
-  { clients: 30, days: 30, price: "$60", productId: 488161 },
 ]
 
 const clientOptions = [...new Set(packages.map((p) => p.clients))].sort((a, b) => a - b)
