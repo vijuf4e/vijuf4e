@@ -14,14 +14,7 @@ const pages = [
   { href: "/metin2", label: "Metin2" },
 ]
 
-const ctaLabels: Record<string, string> = {
-  "/valorant": "Buy · $20",
-  "/metin2": "Buy · 400₺",
-}
-
 export function Navbar({ path }: { path: string }) {
-  const cta = ctaLabels[path]
-
   return (
     <div className="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
       <nav className="flex max-w-full items-center gap-1 rounded-full border border-border bg-surface/65 py-1.5 pl-3.5 pr-1.5 backdrop-blur-xl backdrop-saturate-[1.8]">
@@ -53,15 +46,6 @@ export function Navbar({ path }: { path: string }) {
         >
           <DiscordIcon className="h-4 w-4" />
         </a>
-
-        {cta && (
-          <a
-            href="#pricing"
-            className="ml-1 whitespace-nowrap rounded-full bg-primary px-4 py-1.5 text-[11px] font-bold text-primary-foreground transition-transform hover:scale-[1.04]"
-          >
-            {cta}
-          </a>
-        )}
       </nav>
     </div>
   )

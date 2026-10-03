@@ -1,3 +1,4 @@
+import { Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Ticker } from "@/components/Ticker"
 import { ClientPanel } from "@/components/metin2/ClientPanel"
@@ -25,7 +26,10 @@ export function Metin2() {
                 <a href="#pricing">Buy now · 400₺</a>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <a href="#gallery">See gallery</a>
+                <a href="https://discord.com/invite/Ct8eBkTvyq" target="_blank" rel="noopener noreferrer">
+                  <Download className="h-4 w-4" />
+                  Download on Discord
+                </a>
               </Button>
             </div>
           </div>
