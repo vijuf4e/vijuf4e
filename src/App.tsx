@@ -1,29 +1,52 @@
-import { Navbar } from "@/components/Navbar"
-import { Footer } from "@/components/Footer"
-import { Home } from "@/pages/Home"
+import { Header } from "@/components/layout/Header"
+import { Sidebar } from "@/components/layout/Sidebar"
+import { Overview } from "@/pages/Overview"
 import { Valorant } from "@/pages/Valorant"
 import { Metin2 } from "@/pages/Metin2"
+import { Pricing } from "@/pages/Pricing"
+import { Buy } from "@/pages/Buy"
 import { usePath } from "@/lib/router"
 
-const pages: Record<string, () => React.JSX.Element> = {
-  "/valorant": Valorant,
-  "/metin2": Metin2,
+type Page = (props: { path: string }) => React.JSX.Element
+
+// First path segment picks the page; pages read sub-paths (tabs) themselves
+const pages: Record<string, Page> = {
+  valorant: Valorant,
+  metin2: Metin2,
+  pricing: Pricing,
+  buy: Buy,
+}
+
+function Footer() {
+  return (
+    <footer className="mt-auto border-t border-border px-4 py-5 sm:px-6">
+      <div className="flex items-center justify-between gap-4 text-xs text-muted-foreground">
+        <span>&copy; {new Date().getFullYear()} Xweardes. Tüm hakları saklıdır.</span>
+        <a href="https://cheatglobal.com" target="_blank" rel="noopener noreferrer" className="opacity-70 transition-opacity hover:opacity-100">
+          <img src="/cheatglobal-logo.png" alt="CheatGlobal" className="h-6" />
+        </a>
+      </div>
+    </footer>
+  )
 }
 
 function App() {
   const path = usePath().replace(/\/+$/, "") || "/"
-  const Page = pages[path] ?? Home
+  const section = path.split("/")[1]
+  const Page = pages[section] ?? Overview
+  // Checkout is a focused flow like the reference "create" screens: no sidebar
+  const withSidebar = section !== "buy"
 
   return (
-    <div className="relative isolate min-h-screen flex flex-col overflow-x-clip bg-background">
-      {/* Blurred gold glows behind every page */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute -right-56 -top-80 h-[720px] w-[720px] rounded-full bg-[radial-gradient(closest-side,#b45309,transparent)] opacity-50" />
-        <div className="absolute -left-52 top-[520px] h-[520px] w-[520px] rounded-full bg-[radial-gradient(closest-side,#713f12,transparent)] opacity-35" />
+    <div className="flex min-h-screen flex-col bg-background">
+      <Header path={path} />
+      <div className="flex flex-1">
+        {withSidebar && <Sidebar path={path} />}
+        <main className="flex min-w-0 flex-1 flex-col">
+          <Page path={path} />
+          <Footer />
+        </main>
       </div>
-      <Navbar path={path} />
-      <Page />
-      <Footer />
     </div>
   )
 }

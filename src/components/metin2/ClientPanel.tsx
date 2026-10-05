@@ -8,48 +8,46 @@ const clients = [
   { name: "Nigh****", server: "[RUBY] Lucifer · CH1", level: 77, bars: [88, 92, 52] },
 ]
 
-const barColors = ["bg-[#ef4444]", "bg-[#3b82f6]", "bg-[#eab308]"]
+const barColors = ["bg-red-500", "bg-blue-500", "bg-yellow-500"]
 
 export function ClientPanel() {
   return (
-    <div className="glass glass-lit shadow-[0_30px_80px_-20px_var(--gold-glow)]" aria-label="Multi-client window preview">
-      <div className="flex justify-between border-b border-border px-3.5 py-3 text-xs font-semibold">
+    <div className="overflow-hidden rounded-lg border border-border" aria-label="Multi-client pencere önizlemesi">
+      <div className="flex justify-between border-b border-border bg-muted/60 px-4 py-2.5 text-xs font-medium">
         <span>Xweardes | www.xweardes.com</span>
-        <span className="font-mono text-subtle">— + ×</span>
+        <span className="font-mono text-neutral-400">— + ×</span>
       </div>
-      <div className="flex flex-col gap-1.5 p-2.5">
+      <div className="divide-y divide-border">
         {clients.map((client, i) => (
           <div
             key={client.name}
-            className="grid grid-cols-[22px_1fr_64px_70px] items-center gap-2.5 rounded-lg border-l-2 border-success bg-white/[0.025] px-2.5 py-2 text-xs tabular-nums"
+            className="grid grid-cols-[24px_1fr_90px] items-center gap-3 px-4 py-2.5 text-sm tabular-nums sm:grid-cols-[24px_1fr_110px_120px]"
           >
-            <span className="font-mono text-[11px] text-subtle">{String(i + 1).padStart(2, "0")}</span>
+            <span className="font-mono text-xs text-neutral-400">{String(i + 1).padStart(2, "0")}</span>
             <span className="min-w-0">
-              <span className="block truncate">{client.name}</span>
-              <span className="block truncate text-[10.5px] text-subtle">{client.server}</span>
+              <span className="block truncate font-medium">{client.name}</span>
+              <span className="block truncate text-xs text-muted-foreground">{client.server}</span>
             </span>
-            <span className="font-mono text-[11px] text-muted-foreground">
+            <span className="text-xs text-muted-foreground">
               Lv {client.level}
-              <span className="flex items-center gap-1 text-[10px] font-bold text-success">
+              <span className="flex items-center gap-1.5 font-medium text-success">
                 <span className="animate-blink h-1.5 w-1.5 rounded-full bg-current" />
-                RUNNING
+                Çalışıyor
               </span>
             </span>
-            <span className="flex flex-col gap-[3px]">
+            <span className="hidden flex-col gap-1 sm:flex">
               {client.bars.map((width, b) => (
-                <span
-                  key={b}
-                  className={`animate-breathe block h-[3px] origin-left rounded-sm ${barColors[b]}`}
-                  style={{ width: `${width}%`, animationDuration: `${3.4 + (i % 2) * 0.9}s` }}
-                />
+                <span key={b} className="h-1 rounded-full bg-muted">
+                  <span className={`block h-full rounded-full ${barColors[b]}`} style={{ width: `${width}%` }} />
+                </span>
               ))}
             </span>
           </div>
         ))}
       </div>
-      <div className="flex justify-between border-t border-border px-3.5 py-2.5 font-mono text-[10.5px] text-subtle">
+      <div className="flex justify-between border-t border-border bg-muted/60 px-4 py-2 text-xs text-muted-foreground">
         <span>
-          Clients: <b className="text-primary">6/6</b>
+          Clientlar: <b className="text-foreground">6/6</b>
         </span>
         <span>Build: v1.0.0</span>
       </div>
