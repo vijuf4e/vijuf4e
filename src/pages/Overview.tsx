@@ -79,7 +79,7 @@ export function Overview({ path }: { path: string }) {
               className="group flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-4 transition-colors hover:border-neutral-300 sm:px-6"
             >
               <GripVertical className="hidden h-4 w-4 text-neutral-400 sm:block" />
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-muted">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center">
                 <img src={p.logo} alt="" className={`${p.logoClass} max-h-6 object-contain`} />
               </span>
               <span className="min-w-0 flex-1">

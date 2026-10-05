@@ -59,7 +59,9 @@ export function Sidebar({ path }: { path: string }) {
           const Icon = item.icon
           const icon =
             typeof Icon === "string" ? (
-              <img src={Icon} alt="" className="h-5 w-8 shrink-0 object-contain" />
+              <span className="flex w-8 shrink-0 justify-center">
+                <img src={Icon} alt="" className="h-4 w-4 object-contain" />
+              </span>
             ) : (
               <span className="flex w-8 shrink-0 justify-center">
                 <Icon className="h-4 w-4" strokeWidth={1.8} />
