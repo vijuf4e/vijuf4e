@@ -1,3 +1,4 @@
+import metin2Logo from "@/assets/metin2.png"
 import type { Lang, Text } from "@/lib/i18n"
 
 export const DISCORD_URL = "https://discord.com/invite/Ct8eBkTvyq"
@@ -51,7 +52,7 @@ export const products: Product[] = [
     name: "Metin2",
     product: "Bot",
     description: { tr: "Tek pencerede yan yana 6 client", en: "6 clients side by side in one window" },
-    logo: "/metin2.png",
+    logo: metin2Logo,
     logoClass: "h-6",
     status: { label: { tr: "Beta", en: "Beta" }, tone: "yellow" },
     features: [

@@ -1,3 +1,4 @@
+import metin2Logo from "@/assets/metin2.png"
 import { Download, MonitorPlay, PlayCircle, Swords } from "lucide-react"
 import { linkTo } from "@/lib/router"
 import { DISCORD_URL } from "@/lib/products"
@@ -65,7 +66,7 @@ function Summary() {
       >
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
           <span className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full border border-dashed border-border">
-            <img src="/metin2.png" alt="" className="w-12 object-contain" />
+            <img src={metin2Logo} alt="" className="w-12 object-contain" />
           </span>
           <div className="flex-1">
             <div className="flex items-center gap-2">

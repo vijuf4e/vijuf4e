@@ -1,3 +1,4 @@
+import metin2Logo from "@/assets/metin2.png"
 import { useState } from "react"
 import { ChevronDown, LayoutGrid, Receipt } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
@@ -34,7 +35,7 @@ const items: Item[] = [
   {
     href: "/metin2",
     label: { tr: "Metin2", en: "Metin2" },
-    icon: "/metin2.png",
+    icon: metin2Logo,
     children: [
       { href: "/metin2", label: overview },
       { href: "/metin2/video", label: { tr: "Video", en: "Video" } },
