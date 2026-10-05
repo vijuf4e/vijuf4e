@@ -52,7 +52,7 @@ export const products: Product[] = [
     product: "Bot",
     description: { tr: "Tek pencerede yan yana 6 client", en: "6 clients side by side in one window" },
     logo: "/metin2.png",
-    logoClass: "w-9",
+    logoClass: "h-6",
     status: { label: { tr: "Beta", en: "Beta" }, tone: "yellow" },
     features: [
       { tr: "Tek pencerede 6 client", en: "6 clients in one window" },
