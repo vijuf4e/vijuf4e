@@ -2,6 +2,8 @@ import { ChevronsUpDown } from "lucide-react"
 import { linkTo } from "@/lib/router"
 import { DISCORD_URL, products } from "@/lib/products"
 import { Badge } from "@/components/ui/panel"
+import { setLang, useLang, useT } from "@/lib/i18n"
+import type { Lang } from "@/lib/i18n"
 import { cn } from "@/lib/utils"
 
 export function DiscordIcon({ className }: { className?: string }) {
@@ -13,16 +15,44 @@ export function DiscordIcon({ className }: { className?: string }) {
 }
 
 const tabs = [
-  { href: "/", label: "Genel Bakış" },
-  { href: "/valorant", label: "Valorant" },
-  { href: "/metin2", label: "Metin2" },
-  { href: "/pricing", label: "Fiyatlandırma" },
-  { href: "/buy", label: "Satın Al" },
+  { href: "/", label: { tr: "Genel Bakış", en: "Overview" } },
+  { href: "/valorant", label: { tr: "Valorant", en: "Valorant" } },
+  { href: "/metin2", label: { tr: "Metin2", en: "Metin2" } },
+  { href: "/pricing", label: { tr: "Fiyatlandırma", en: "Pricing" } },
+  { href: "/buy", label: { tr: "Satın Al", en: "Buy" } },
 ]
+
+export function LangSwitch() {
+  const lang = useLang()
+  const t = useT()
+  return (
+    <div
+      role="group"
+      aria-label={t("Dil", "Language")}
+      className="flex shrink-0 rounded-md border border-border bg-card p-0.5 text-xs font-medium shadow-xs"
+    >
+      {(["tr", "en"] as Lang[]).map((l) => (
+        <button
+          key={l}
+          type="button"
+          onClick={() => setLang(l)}
+          aria-pressed={lang === l}
+          className={cn(
+            "rounded px-2 py-1 transition-colors",
+            lang === l ? "bg-primary text-primary-foreground" : "text-neutral-600 hover:text-foreground"
+          )}
+        >
+          {l.toUpperCase()}
+        </button>
+      ))}
+    </div>
+  )
+}
 
 const isActive = (path: string, href: string) => (href === "/" ? path === "/" : path === href || path.startsWith(href + "/"))
 
 export function Header({ path }: { path: string }) {
+  const t = useT()
   // Breadcrumb shows the product the visitor is looking at (also on /buy/<slug>)
   const current = products.find((p) => path.split("/").includes(p.slug))
 
@@ -45,22 +75,26 @@ export function Header({ path }: { path: string }) {
                   <img src={current.logo} alt="" className="max-h-3.5 w-[18px] object-contain" />
                 </span>
                 <span className="truncate">{current.name}</span>
-                <Badge className="hidden sm:inline-flex">{current.status.label}</Badge>
+                <Badge className="hidden sm:inline-flex">{t(current.status.label)}</Badge>
                 <ChevronsUpDown className="hidden h-3.5 w-3.5 text-neutral-400 sm:block" />
               </a>
             </>
           )}
         </div>
 
-        <a
-          href={DISCORD_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex shrink-0 items-center gap-2 rounded-md border border-border bg-card px-3 py-1.5 text-xs font-medium shadow-xs hover:bg-muted"
-        >
-          <DiscordIcon className="h-4 w-4" />
-          Canlı Destek
-        </a>
+        <div className="flex shrink-0 items-center gap-2">
+          <LangSwitch />
+          <a
+            href={DISCORD_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={t("Canlı Destek", "Live Support")}
+            className="flex items-center gap-2 rounded-md border border-border bg-card px-3 py-1.5 text-xs font-medium shadow-xs hover:bg-muted"
+          >
+            <DiscordIcon className="h-4 w-4" />
+            <span className="hidden sm:inline">{t("Canlı Destek", "Live Support")}</span>
+          </a>
+        </div>
       </div>
 
       <nav className="no-scrollbar flex gap-1 overflow-x-auto px-2 sm:px-4">
@@ -79,7 +113,7 @@ export function Header({ path }: { path: string }) {
                   : "text-neutral-600 hover:text-foreground"
               )}
             >
-              {label}
+              {t(label)}
             </a>
           )
         })}

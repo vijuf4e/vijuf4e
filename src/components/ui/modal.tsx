@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { X } from "lucide-react"
+import { useT } from "@/lib/i18n"
 
 export function Modal({
   open,
@@ -12,6 +13,7 @@ export function Modal({
   children: React.ReactNode
   footer?: React.ReactNode
 }) {
+  const t = useT()
   useEffect(() => {
     if (!open) return
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose()
@@ -36,7 +38,7 @@ export function Modal({
         <button
           type="button"
           onClick={onClose}
-          aria-label="Kapat"
+          aria-label={t("Kapat", "Close")}
           className="absolute right-4 top-4 rounded-md p-1 text-neutral-500 hover:bg-muted hover:text-foreground"
         >
           <X className="h-4 w-4" />

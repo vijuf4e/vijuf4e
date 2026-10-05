@@ -1,6 +1,7 @@
 import { ArrowLeft } from "lucide-react"
 import { linkTo } from "@/lib/router"
 import { cn } from "@/lib/utils"
+import { useT } from "@/lib/i18n"
 
 /** Title band across the content area, with optional back link and underline tabs */
 export function PageHeader({
@@ -16,6 +17,7 @@ export function PageHeader({
   tabs?: { href: string; label: string }[]
   className?: string
 }) {
+  const t = useT()
   return (
     <div className="border-b border-border">
       <div className={cn("mx-auto w-full px-4 sm:px-6", className)}>
@@ -24,7 +26,7 @@ export function PageHeader({
             <a
               href={back}
               onClick={linkTo(back)}
-              aria-label="Geri"
+              aria-label={t("Geri", "Back")}
               className="-ml-1 rounded-md p-1 text-foreground hover:bg-muted"
             >
               <ArrowLeft className="h-5 w-5" />

@@ -1,3 +1,5 @@
+import { useT } from "@/lib/i18n"
+
 // HTML recreation of the multi-client window; values mirror public/metin2/running.png
 const clients = [
   { name: "Lon****", server: "[RUBY] Lucifer · CH1", level: 82, bars: [82, 64, 40] },
@@ -11,8 +13,9 @@ const clients = [
 const barColors = ["bg-red-500", "bg-blue-500", "bg-yellow-500"]
 
 export function ClientPanel() {
+  const t = useT()
   return (
-    <div className="overflow-hidden rounded-lg border border-border" aria-label="Multi-client pencere önizlemesi">
+    <div className="overflow-hidden rounded-lg border border-border" aria-label={t("Multi-client pencere önizlemesi", "Multi-client window preview")}>
       <div className="flex justify-between border-b border-border bg-muted/60 px-4 py-2.5 text-xs font-medium">
         <span>Xweardes | www.xweardes.com</span>
         <span className="font-mono text-neutral-400">— + ×</span>
@@ -32,7 +35,7 @@ export function ClientPanel() {
               Lv {client.level}
               <span className="flex items-center gap-1.5 font-medium text-success">
                 <span className="animate-blink h-1.5 w-1.5 rounded-full bg-current" />
-                Çalışıyor
+                {t("Çalışıyor", "Running")}
               </span>
             </span>
             <span className="hidden flex-col gap-1 sm:flex">
@@ -47,7 +50,7 @@ export function ClientPanel() {
       </div>
       <div className="flex justify-between border-t border-border bg-muted/60 px-4 py-2 text-xs text-muted-foreground">
         <span>
-          Clientlar: <b className="text-foreground">6/6</b>
+          {t("Clientlar", "Clients")}: <b className="text-foreground">6/6</b>
         </span>
         <span>Build: v1.0.0</span>
       </div>

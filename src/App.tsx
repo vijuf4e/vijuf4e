@@ -6,6 +6,7 @@ import { Metin2 } from "@/pages/Metin2"
 import { Pricing } from "@/pages/Pricing"
 import { Buy } from "@/pages/Buy"
 import { usePath } from "@/lib/router"
+import { useT } from "@/lib/i18n"
 
 type Page = (props: { path: string }) => React.JSX.Element
 
@@ -18,10 +19,11 @@ const pages: Record<string, Page> = {
 }
 
 function Footer() {
+  const t = useT()
   return (
     <footer className="mt-auto border-t border-border px-4 py-5 sm:px-6">
       <div className="flex items-center justify-between gap-4 text-xs text-muted-foreground">
-        <span>&copy; {new Date().getFullYear()} Xweardes. Tüm hakları saklıdır.</span>
+        <span>&copy; {new Date().getFullYear()} Xweardes. {t("Tüm hakları saklıdır.", "All rights reserved.")}</span>
         <a href="https://cheatglobal.com" target="_blank" rel="noopener noreferrer" className="opacity-70 transition-opacity hover:opacity-100">
           <img src="/cheatglobal-logo.png" alt="CheatGlobal" className="h-6" />
         </a>

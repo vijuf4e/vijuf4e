@@ -1,56 +1,64 @@
 import { Check, Minus } from "lucide-react"
 import { linkTo } from "@/lib/router"
 import { products } from "@/lib/products"
+import { useT } from "@/lib/i18n"
+import type { Text } from "@/lib/i18n"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/panel"
 import { PageHeader } from "@/components/layout/PageHeader"
 
-type Cell = string | boolean
+type Cell = Text | string | boolean
 
 // One value per product, in the same order as `products` (Valorant, Metin2)
-const groups: { title: string; rows: { label: string; values: Cell[] }[] }[] = [
+const groups: { title: Text; rows: { label: Text; values: Cell[] }[] }[] = [
   {
-    title: "Paket Detayları",
+    title: { tr: "Paket Detayları", en: "Package Details" },
     rows: [
-      { label: "Oyun", values: ["Valorant", "Metin2"] },
-      { label: "Ürün", values: ["Color Trigger Bot", "Bot"] },
-      { label: "Süre", values: ["1 ay", "10 gün"] },
-      { label: "Client sayısı", values: ["—", "6"] },
-      { label: "Ödeme", values: ["Discord", "Game24card"] },
+      { label: { tr: "Oyun", en: "Game" }, values: ["Valorant", "Metin2"] },
+      { label: { tr: "Ürün", en: "Product" }, values: ["Color Trigger Bot", "Bot"] },
+      { label: { tr: "Süre", en: "Duration" }, values: [{ tr: "1 ay", en: "1 month" }, { tr: "10 gün", en: "10 days" }] },
+      { label: { tr: "Client sayısı", en: "Clients" }, values: ["—", "6"] },
+      { label: { tr: "Ödeme", en: "Payment" }, values: ["Discord", { tr: "Game24card · Kripto", en: "Game24card · Crypto" }] },
     ],
   },
   {
-    title: "Özellikler",
+    title: { tr: "Özellikler", en: "Features" },
     rows: [
-      { label: "Çoklu renk algılama", values: [true, false] },
-      { label: "Spray ve tap modları", values: [true, false] },
-      { label: "Config paylaşımı", values: [true, false] },
-      { label: "Tek pencerede çoklu client", values: [false, true] },
-      { label: "Client durum takibi", values: [false, true] },
-      { label: "Discord desteği", values: [true, true] },
+      { label: { tr: "Çoklu renk algılama", en: "Multi-color detection" }, values: [true, false] },
+      { label: { tr: "Spray ve tap modları", en: "Spray and tap modes" }, values: [true, false] },
+      { label: { tr: "Config paylaşımı", en: "Config sharing" }, values: [true, false] },
+      { label: { tr: "Tek pencerede çoklu client", en: "Multiple clients in one window" }, values: [false, true] },
+      { label: { tr: "Client durum takibi", en: "Client status tracking" }, values: [false, true] },
+      { label: { tr: "Discord desteği", en: "Discord support" }, values: [true, true] },
     ],
   },
 ]
 
 function Value({ value }: { value: Cell }) {
+  const t = useT()
   if (value === true) return <Check className="mx-auto h-4 w-4" />
   if (value === false) return <Minus className="mx-auto h-4 w-4 text-neutral-300" />
-  return <span>{value}</span>
+  return <span>{typeof value === "string" ? value : t(value)}</span>
 }
 
 export function Pricing({ path }: { path: string }) {
+  const t = useT()
   return (
     <>
-      <PageHeader title="Fiyatlandırma" path={path} className="max-w-5xl" />
+      <PageHeader title={t("Fiyatlandırma", "Pricing")} path={path} className="max-w-5xl" />
       <div className="mx-auto w-full max-w-5xl px-4 py-8 sm:px-6">
         <div className="overflow-x-auto rounded-xl border border-border bg-card">
           <div className="min-w-[640px]">
             <div className="flex items-center justify-between border-b border-border px-6 py-5">
-              <h2 className="text-xl font-semibold tracking-tight">İhtiyacınıza Uygun Paketi Seçin</h2>
+              <h2 className="text-xl font-semibold tracking-tight">
+                {t("İhtiyacınıza Uygun Paketi Seçin", "Choose the Right Package")}
+              </h2>
             </div>
 
             <div className="grid grid-cols-[1.2fr_1fr_1fr]">
-              <div className="flex items-center border-r border-border px-6 text-sm text-neutral-600">Paketler</div>
+              <div className="flex items-center border-r border-border px-6 text-sm text-neutral-600">
+                {t("Paketler", "Packages")}
+              </div>
               {products.map((p) => {
                 const plan = p.plans[0]
                 return (
@@ -61,18 +69,18 @@ export function Pricing({ path }: { path: string }) {
                           <img src={p.logo} alt="" className="h-5 w-7 object-contain" />
                           {p.name}
                         </span>
-                        <Badge tone={p.status.tone}>{p.status.label}</Badge>
+                        <Badge tone={p.status.tone}>{t(p.status.label)}</Badge>
                       </div>
                       <span className="mt-4 text-[11px] font-medium uppercase tracking-wide text-neutral-600">
-                        {plan.label}
+                        {t(plan.label)}
                       </span>
                       <span className="mb-4 flex items-baseline gap-1">
                         <span className="text-2xl font-bold">{plan.price}</span>
-                        <span className="text-xs text-neutral-600">{plan.period}</span>
+                        <span className="text-xs text-neutral-600">{t(plan.period)}</span>
                       </span>
                       <Button size="sm" className="mt-auto w-full" asChild>
                         <a href={`/buy/${p.slug}`} onClick={linkTo(`/buy/${p.slug}`)}>
-                          Satın Al
+                          {t("Satın Al", "Buy")}
                         </a>
                       </Button>
                     </div>
@@ -82,14 +90,14 @@ export function Pricing({ path }: { path: string }) {
             </div>
 
             {groups.map((group) => (
-              <div key={group.title}>
+              <div key={group.title.en}>
                 <div className="grid grid-cols-[1.2fr_2fr] border-t border-border">
-                  <div className="border-r border-border px-6 py-3.5 text-sm font-semibold">{group.title}</div>
+                  <div className="border-r border-border px-6 py-3.5 text-sm font-semibold">{t(group.title)}</div>
                   <div />
                 </div>
                 {group.rows.map((row) => (
-                  <div key={row.label} className="grid grid-cols-[1.2fr_1fr_1fr] border-t border-border text-sm">
-                    <div className="border-r border-border px-6 py-3">{row.label}</div>
+                  <div key={row.label.en} className="grid grid-cols-[1.2fr_1fr_1fr] border-t border-border text-sm">
+                    <div className="border-r border-border px-6 py-3">{t(row.label)}</div>
                     {row.values.map((v, i) => (
                       <div key={i} className="border-r border-border px-4 py-3 text-center last:border-r-0">
                         <Value value={v} />
