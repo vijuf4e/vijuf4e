@@ -91,8 +91,8 @@ function Checkout({ product }: { product: Product }) {
   const t = useT()
   const lang = useLang()
   const plan = product.plans[planIndex]
-  // Plans with a Game24card product go through the order API (PIN or crypto); the rest are sold on Discord
-  const method = plan.productId ? t("Game24card PIN · Kripto (BTC, LTC)", "Game24card PIN · Crypto (BTC, LTC)") : "Discord"
+  // Plans with a Game24card product go through the order API (crypto); the rest are sold on Discord
+  const method = plan.productId ? t("Kripto (BTC, LTC)", "Crypto (BTC, LTC)") : "Discord"
   const payUrl = plan.productId ? buyUrl(plan.productId, lang) : DISCORD_URL
 
   return (
@@ -223,8 +223,8 @@ function Checkout({ product }: { product: Product }) {
           <p className="mt-3 text-sm leading-relaxed text-neutral-600">
             {plan.productId
               ? t(
-                  "Sipariş sayfanıza yönlendirileceksiniz. Ödemeyi Game24card PIN veya kripto (BTC, LTC) ile tamamladığınızda lisans anahtarınız aynı sayfada görüntülenir.",
-                  "You will be redirected to your order page. Once you pay with a Game24card PIN or crypto (BTC, LTC), your license key appears on the same page."
+                  "Sipariş sayfanıza yönlendirileceksiniz. Ödemeyi kripto (BTC, LTC) ile tamamladığınızda lisans anahtarınız aynı sayfada görüntülenir.",
+                  "You will be redirected to your order page. Once you pay with crypto (BTC, LTC), your license key appears on the same page."
                 )
               : t(
                   "Discord sunucumuza yönlendirileceksiniz. Satın alma işlemini ekibimizle birlikte tamamlayabilirsiniz.",

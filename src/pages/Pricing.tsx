@@ -18,7 +18,7 @@ const groups: { title: Text; rows: { label: Text; values: Cell[] }[] }[] = [
       { label: { tr: "Ürün", en: "Product" }, values: ["Color Trigger Bot", "Bot"] },
       { label: { tr: "Süre", en: "Duration" }, values: [{ tr: "1 ay", en: "1 month" }, { tr: "10 gün", en: "10 days" }] },
       { label: { tr: "Client sayısı", en: "Clients" }, values: ["—", "6"] },
-      { label: { tr: "Ödeme", en: "Payment" }, values: ["Discord", { tr: "Game24card · Kripto", en: "Game24card · Crypto" }] },
+      { label: { tr: "Ödeme", en: "Payment" }, values: ["Discord", { tr: "Kripto", en: "Crypto" }] },
     ],
   },
   {
