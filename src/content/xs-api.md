@@ -958,6 +958,9 @@ with the current values.
 | `g_BoostSpeed` | int | 0..100 | Move Speed value |
 | `C_AutoReviveHere` | bool | | Revive Here |
 | `C_AutoReviveCity` | bool | | Revive in Town |
+| `C_ReviveHpWait` | bool | | Revive HP: after reviving, no damage until HP reaches `C_ReviveHpPct` |
+| `C_ReviveHpPct` | int | 1..100 | HP % required after reviving |
+| `C_AutoMount` | bool | | Auto Mount: stay mounted; with Auto Skill, dismount, cast, remount |
 | `C_AutoRelogin` | bool | | Auto Login after a disconnect |
 | `C_AutoPotionRed` | bool | | Red potion |
 | `C_AutoPotionRedPercent` | float | 0..100 | Use red potion below this HP % |

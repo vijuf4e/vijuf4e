@@ -963,6 +963,9 @@ değerlerle döndürür. Tırnak içindeki adlar bot penceresindeki etiketlerdir
 | `g_BoostSpeed` | int | 0..100 | Move Speed değeri |
 | `C_AutoReviveHere` | bool | | "Revive Here" (burada diril) |
 | `C_AutoReviveCity` | bool | | "Revive in Town" (şehirde diril) |
+| `C_ReviveHpWait` | bool | | "Revive HP": dirildikten sonra can `C_ReviveHpPct`'e gelene kadar hasar yok |
+| `C_ReviveHpPct` | int | 1..100 | Dirildikten sonra beklenen can % |
+| `C_AutoMount` | bool | | "Auto Mount": binekte kal; Auto Skill ile in, beceriyi bas, tekrar bin |
 | `C_AutoRelogin` | bool | | Kopmadan sonra Auto Login |
 | `C_AutoPotionRed` | bool | | Kırmızı iksir |
 | `C_AutoPotionRedPercent` | float | 0..100 | HP bu %'nin altına inince kırmızı iksir |
