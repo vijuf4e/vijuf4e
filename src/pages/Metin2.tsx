@@ -7,26 +7,32 @@ import { Button } from "@/components/ui/button"
 import { Badge, SectionCard } from "@/components/ui/panel"
 import { PageHeader } from "@/components/layout/PageHeader"
 import { ClientPanel } from "@/components/metin2/ClientPanel"
+import { PythonDocs } from "@/components/metin2/PythonDocs"
 
 const tabs = [
   { href: "/metin2", label: { tr: "Genel Bakış", en: "Overview" } },
   { href: "/metin2/video", label: { tr: "Video", en: "Video" } },
+  { href: "/metin2/python", label: { tr: "Python API", en: "Python API" } },
 ]
 
 const youtubeId = "r5rVcPRuus4"
 
 export function Metin2({ path }: { path: string }) {
   const t = useT()
+  // The API reference needs room for its side index
+  const width = path === "/metin2/python" ? "max-w-6xl" : "max-w-5xl"
   return (
     <>
       <PageHeader
         title="Metin2"
         path={path}
         tabs={tabs.map((tab) => ({ ...tab, label: t(tab.label) }))}
-        className="max-w-5xl"
+        className={width}
       />
-      <div className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-4 py-8 sm:px-6">
-        {path === "/metin2/video" ? (
+      <div className={`mx-auto flex w-full ${width} flex-col gap-6 px-4 py-8 sm:px-6`}>
+        {path === "/metin2/python" ? (
+          <PythonDocs />
+        ) : path === "/metin2/video" ? (
           <SectionCard icon={PlayCircle} title={t("Tanıtım Videosu", "Showcase Video")} bodyClassName="p-0">
             <iframe
               src={`https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0`}

@@ -81,3 +81,39 @@
   .animate-fade-in { animation: fade-in 0.15s ease-out; }
   .animate-pop-in { animation: pop-in 0.18s ease-out; }
 }
+
+/* ---------- Metin2 > Python API (rendered from src/content/xs-api*.md) ---------- */
+.xs-doc { font-size: 14.5px; line-height: 1.65; color: var(--foreground); }
+.xs-doc > :first-child { margin-top: 0; }
+.xs-doc h1 { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 12px; }
+.xs-doc h2 { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; margin: 48px 0 12px; padding-top: 20px; border-top: 1px solid var(--border); scroll-margin-top: 120px; text-wrap: balance; }
+.xs-doc h3 { font-size: 15px; font-weight: 600; margin: 28px 0 8px; scroll-margin-top: 120px; }
+.xs-doc h3.xs-sig { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-family: var(--font-mono); font-weight: 500; font-size: 14px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 9px 12px; overflow-wrap: anywhere; }
+.xs-doc .xs-sig-name { color: var(--accent); font-weight: 600; }
+.xs-doc .xs-yield { margin-left: auto; font-family: var(--font-sans); font-size: 11px; font-weight: 500; color: var(--warning); background: #fffbeb; border-radius: 6px; padding: 1px 7px; }
+.xs-doc p, .xs-doc li { max-width: 72ch; }
+.xs-doc p { margin: 10px 0; }
+.xs-doc ul, .xs-doc ol { margin: 10px 0; padding-left: 22px; }
+.xs-doc ul { list-style: disc; }
+.xs-doc ol { list-style: decimal; }
+.xs-doc li + li { margin-top: 4px; }
+.xs-doc a { color: var(--accent); }
+.xs-doc a:hover { text-decoration: underline; }
+.xs-doc hr { display: none; }
+.xs-doc strong { font-weight: 600; }
+.xs-doc code { font-family: var(--font-mono); font-size: 0.86em; background: var(--muted); border-radius: 4px; padding: 1px 5px; }
+.xs-doc .xs-code { position: relative; margin: 12px 0; }
+.xs-doc pre { background: #0a0a0a; color: #e5e5e5; border-radius: 10px; padding: 14px 16px; overflow-x: auto; font-size: 13px; line-height: 1.6; }
+.xs-doc pre code { background: none; padding: 0; font-size: inherit; color: inherit; }
+.xs-doc .xs-copy { position: absolute; top: 8px; right: 8px; font-size: 12px; font-weight: 500; color: #d4d4d4; background: #262626; border-radius: 6px; padding: 2px 8px; opacity: 0; transition: opacity .15s; cursor: pointer; }
+.xs-doc .xs-code:hover .xs-copy, .xs-doc .xs-copy:focus-visible { opacity: 1; }
+.xs-doc .xs-table { overflow-x: auto; margin: 12px 0; border: 1px solid var(--border); border-radius: 10px; background: var(--card); }
+.xs-doc table { width: 100%; border-collapse: collapse; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+.xs-doc th { text-align: left; font-weight: 500; font-size: 12px; color: var(--muted-foreground); background: var(--muted); padding: 8px 12px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+.xs-doc td { padding: 8px 12px; border-top: 1px solid var(--border); vertical-align: top; }
+.xs-doc tr:first-child td { border-top: 0; }
+.xs-doc td:first-child code { white-space: nowrap; }
+.xs-doc tr[id] { scroll-margin-top: 120px; }
+.xs-doc tr:target, .xs-doc h3:target { background: var(--accent-soft); }
+/* The in-page contents list duplicates the side index */
+.xs-doc #contents, .xs-doc #contents + ol, .xs-doc #icindekiler, .xs-doc #icindekiler + ol { display: none; }

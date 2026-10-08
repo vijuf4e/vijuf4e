@@ -39,6 +39,7 @@ const items: Item[] = [
     children: [
       { href: "/metin2", label: overview },
       { href: "/metin2/video", label: { tr: "Video", en: "Video" } },
+      { href: "/metin2/python", label: { tr: "Python API", en: "Python API" } },
       { href: "/buy/metin2", label: buy },
     ],
   },
