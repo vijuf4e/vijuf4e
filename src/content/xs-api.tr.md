@@ -539,18 +539,30 @@ Bir statü puanı harcar. `stat`: `"st"`, `"dx"`, `"ht"` ya da `"iq"`.
 ## 9. Hareket
 
 Karakteri başka bir motor sürerken hareket istekleri reddedilir
-(bkz. [Kurallar](#2-bilmeniz-gereken-kurallar)). Betik durunca başlattığı
-yürüyüş de durur.
+(bkz. [Kurallar](#2-bilmeniz-gereken-kurallar)). Betiği **durdurursanız**
+(ya da hata ile durursa) başlattığı yürüyüş ya da ışınlanma da durur.
+Kendiliğinden biten betik (örneğin tek satırlık `xs.Teleport(...)`) onu iptal
+etmez.
+
+Koordinatlar **oyun birimidir** = harita koordinatı × 100. Karakterin
+basamayacağı bir hedef `destination not walkable` ile reddedilir; iki sayı da
+küçükse mesaj × 100'ü hatırlatır:
+
+```python
+xs.Teleport(44100, 59600)    # doğru: harita 441, 596
+xs.Teleport(441, 596)        # reddedilir: destination not walkable - coordinates are game units (map coordinate x 100)
+```
 
 ### xs.Walk(x, y)
 
 Engellerin etrafından dolaşan bir yolla `(x, y)`'ye yürür (haritada sağ tık
-ile aynı). Red nedeni: `invalid destination`.
+ile aynı). Red nedenleri: `destination not walkable`, `invalid destination`.
 
 ### xs.Teleport(x, y)
 
 Geçerli haritada `(x, y)`'ye ışınlanır. Haritanın **Teleport** seçeneği
 (`C_RadarTeleport`) açık olmalıdır; değilse `teleport is off` ile reddedilir.
+Hedef basılabilir değilse `destination not walkable` ile reddedilir.
 
 ### xs.Go(x, y)
 
@@ -1138,6 +1150,7 @@ Mesajlar oyunda olduğu gibi (İngilizce) yazılmıştır.
 | `no target`, `target is dead`, `no item` | VID etrafta değil / ölü |
 | `character is dead` | karakter ölü |
 | `invalid destination` | bu noktaya yol yok |
+| `destination not walkable` | hedef nokta duvar / harita dışı; koordinatlar oyun birimidir (harita koordinatı × 100) |
 | `teleport is off (C_RadarTeleport)` | Teleport'u açın |
 | `timeout` | *(yield)* fonksiyonu zamanında bitmedi |
 | `send failed` | oyun paketi kabul etmedi |

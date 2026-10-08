@@ -535,18 +535,29 @@ Spends one skill point on skill `vnum`.
 ## 9. Movement
 
 Movement requests are refused while another engine drives the character
-(see [Rules](#2-rules-you-must-know)). When the script stops, a walk it started
-stops too.
+(see [Rules](#2-rules-you-must-know)). If you **stop** the script (or it
+stops with an error), a walk or teleport it started stops too. A script that
+simply ends (for example a one-line `xs.Teleport(...)`) does not cancel it.
+
+Coordinates are **game units** = the map coordinate × 100. A destination the
+character cannot stand on is refused with `destination not walkable`; if both
+numbers are small, the message reminds you of the × 100:
+
+```python
+xs.Teleport(44100, 59600)    # correct: map 441, 596
+xs.Teleport(441, 596)        # refused: destination not walkable - coordinates are game units (map coordinate x 100)
+```
 
 ### xs.Walk(x, y)
 
 Walks to `(x, y)` along a path around obstacles (same as a right click on the
-map). Refusal: `invalid destination`.
+map). Refusals: `destination not walkable`, `invalid destination`.
 
 ### xs.Teleport(x, y)
 
 Teleports to `(x, y)` on the current map. Requires the **Teleport** option of
 the map (`C_RadarTeleport`); refused with `teleport is off` otherwise.
+Refused with `destination not walkable` when the target is not walkable.
 
 ### xs.Go(x, y)
 
@@ -1132,6 +1143,7 @@ with the current values.
 | `no target`, `target is dead`, `no item` | the VID is not around / dead |
 | `character is dead` | |
 | `invalid destination` | no path to this point |
+| `destination not walkable` | the target point is a wall / outside the map; coordinates are game units (map coordinate × 100) |
 | `teleport is off (C_RadarTeleport)` | turn on Teleport |
 | `timeout` | a *(yield)* function did not finish in time |
 | `send failed` | the game did not accept the packet |
