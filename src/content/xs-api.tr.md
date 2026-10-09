@@ -960,7 +960,7 @@ değerlerle döndürür. Tırnak içindeki adlar bot penceresindeki etiketlerdir
 | `C_Zoom` | bool | | Kamera yakınlaştırma |
 | `C_ZoomValue` | float | 3500..30000 | En büyük kamera mesafesi |
 | `g_BoostEnabled` | bool | | Move Speed |
-| `g_BoostSpeed` | int | 0..100 | Move Speed değeri |
+| `g_BoostSpeed` | int | 100..1500 | Move Speed değeri (hız oranı x 100; 100 = normal) |
 | `C_AutoReviveHere` | bool | | "Revive Here" (burada diril) |
 | `C_AutoReviveCity` | bool | | "Revive in Town" (şehirde diril) |
 | `C_ReviveHpWait` | bool | | "Revive HP": dirildikten sonra can `C_ReviveHpPct`'e gelene kadar hasar yok |
@@ -1084,6 +1084,9 @@ değerlerle döndürür. Tırnak içindeki adlar bot penceresindeki etiketlerdir
 | Ad | Tür | Aralık | Anlamı |
 |---|---|---|---|
 | `C_AutoStack` | bool | | Eşyaları otomatik yığ |
+| `C_AutoSplit` | bool | | `C_SplitVnum` yığınlarını `C_SplitSize`'lık parçalara ayır (açmak `C_AutoStack`'i kapatır) |
+| `C_SplitVnum` | int | 0..999999999 | Ayrılacak eşyanın vnum'u (0 = yok) |
+| `C_SplitSize` | int | 1..199 | Her parçanın adedi |
 | `C_AutoRelogEnable` | bool | | X dakikada bir relog |
 | `C_AutoRelogMinutes` | int | 1..1440 | Dakika |
 | `C_AutoRestartEnable` | bool | | X saatte bir istemciyi yeniden başlat |

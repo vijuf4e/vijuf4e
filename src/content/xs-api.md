@@ -955,7 +955,7 @@ with the current values.
 | `C_Zoom` | bool | | Camera zoom |
 | `C_ZoomValue` | float | 3500..30000 | Maximum camera distance |
 | `g_BoostEnabled` | bool | | Move Speed |
-| `g_BoostSpeed` | int | 0..100 | Move Speed value |
+| `g_BoostSpeed` | int | 100..1500 | Move Speed value (speed ratio x 100; 100 = normal) |
 | `C_AutoReviveHere` | bool | | Revive Here |
 | `C_AutoReviveCity` | bool | | Revive in Town |
 | `C_ReviveHpWait` | bool | | Revive HP: after reviving, no damage until HP reaches `C_ReviveHpPct` |
@@ -1079,6 +1079,9 @@ with the current values.
 | Name | Type | Range | Meaning |
 |---|---|---|---|
 | `C_AutoStack` | bool | | Auto stack items |
+| `C_AutoSplit` | bool | | Split stacks of `C_SplitVnum` into `C_SplitSize` pieces (turning it on turns `C_AutoStack` off) |
+| `C_SplitVnum` | int | 0..999999999 | Item vnum to split (0 = none) |
+| `C_SplitSize` | int | 1..199 | Size of each split stack |
 | `C_AutoRelogEnable` | bool | | Relog every X minutes |
 | `C_AutoRelogMinutes` | int | 1..1440 | Minutes |
 | `C_AutoRestartEnable` | bool | | Restart client every X hours |
