@@ -105,10 +105,10 @@ function Summary() {
           </>
         }
         action={
-          <Button size="sm" asChild>
-            <a href={PATCHER_URL} download>
-              {t("Patcher'ı İndir", "Download Patcher")}
-            </a>
+          // A button instead of a link so hovering doesn't show the server URL in the status bar;
+          // the server sends Content-Disposition: attachment, so the page stays put
+          <Button size="sm" onClick={() => (window.location.href = PATCHER_URL)}>
+            {t("Patcher'ı İndir", "Download Patcher")}
           </Button>
         }
       >
