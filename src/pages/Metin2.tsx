@@ -1,7 +1,7 @@
 import metin2Logo from "@/assets/metin2.png"
 import { Download, MonitorPlay, PlayCircle, Swords } from "lucide-react"
 import { linkTo } from "@/lib/router"
-import { DISCORD_URL } from "@/lib/products"
+import { DISCORD_URL, PATCHER_URL } from "@/lib/products"
 import { useT } from "@/lib/i18n"
 import { Button } from "@/components/ui/button"
 import { Badge, SectionCard } from "@/components/ui/panel"
@@ -96,19 +96,26 @@ function Summary() {
       <SectionCard
         icon={Download}
         title={t("İndir", "Download")}
-        footer={t("İndirme bağlantısı Discord sunucumuzda paylaşılır", "The download link is shared on our Discord server")}
+        footer={
+          <>
+            {t("Sorun mu var? ", "Having trouble? ")}
+            <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+              {t("Discord'a yazın", "Ask on Discord")}
+            </a>
+          </>
+        }
         action={
-          <Button size="sm" variant="muted" asChild>
-            <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer">
-              {t("Discord'dan İndir", "Download on Discord")}
+          <Button size="sm" asChild>
+            <a href={PATCHER_URL} download>
+              {t("Patcher'ı İndir", "Download Patcher")}
             </a>
           </Button>
         }
       >
         <p className="text-sm text-neutral-700">
           {t(
-            "Programın güncel sürümünü Discord sunucumuzdan indirebilirsiniz. Güncel sürüm:",
-            "You can download the latest version from our Discord server. Current version:"
+            "Patcher'ı indirip çalıştırın; programın güncel sürümünü kendisi indirir ve güncel tutar. Güncel sürüm:",
+            "Download and run the Patcher; it fetches the latest version of the program and keeps it up to date. Current version:"
           )}{" "}
           <b>v1.0.0</b>
         </p>

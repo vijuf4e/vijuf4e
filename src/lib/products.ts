@@ -3,6 +3,9 @@ import type { Lang, Text } from "@/lib/i18n"
 
 export const DISCORD_URL = "https://discord.com/invite/Ct8eBkTvyq"
 
+/** Served by Caddy from C:\downloads on the payment server; replace the file to ship an update */
+export const PATCHER_URL = "https://api.xweardes.com/download/Patcher.exe"
+
 /** Order page on the payment server; it opens in the visitor's language */
 export const buyUrl = (productId: number, lang: Lang) =>
   `https://api.xweardes.com/buy?product=${productId}&lang=${lang}`

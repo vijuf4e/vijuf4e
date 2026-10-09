@@ -163,8 +163,8 @@ function Checkout({ product }: { product: Product }) {
           <div className="rounded-lg border border-dashed border-border px-5 py-4 text-sm text-neutral-600">
             {plan.productId
               ? t(
-                  "Ödeme onaylandıktan sonra lisans anahtarınız sipariş sayfanızda görüntülenir. Programı Discord sunucumuzdan indirebilirsiniz.",
-                  "Once the payment is confirmed, your license key is shown on your order page. You can download the program from our Discord server."
+                  "Ödeme onaylandıktan sonra lisans anahtarınız sipariş sayfanızda görüntülenir. Patcher'ı Metin2 sayfasındaki İndir bölümünden indirebilirsiniz.",
+                  "Once the payment is confirmed, your license key is shown on your order page. You can download the Patcher from the Download section on the Metin2 page."
                 )
               : t(
                   "Satın alma işlemi Discord sunucumuz üzerinden tamamlanır. Ekibimiz lisansınızı Discord üzerinden iletir.",
