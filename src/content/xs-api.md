@@ -1119,6 +1119,10 @@ with the current values.
 | `C_EngMinYang` | int | 0..2000000000 | Minimum Yang |
 | `C_EngItemVnum` | int | 0..999999 | Item VNUM to buy (0 = cheapest) |
 | `C_EngShopTown` | int | 0..1 | Weapon Shop in Village 1 / Village 2 |
+| `C_TrEnable` | bool | | Time Rift running |
+| `C_TrDungeon` | int | 0..3 | Dungeon: 0 Grotto of Exile, 1 Red Dragon Fortress, 2 Nemere's Watchtower, 3 Enchanted Forest |
+| `C_TrWatchBuy` | int | 1..1000 | Pocket Watches to buy |
+| `C_TrWalk` | bool | | Time Rift: always walk on the Plateau (ignore Teleport) |
 
 ### security
 

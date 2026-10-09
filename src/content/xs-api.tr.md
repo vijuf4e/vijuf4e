@@ -1124,6 +1124,10 @@ değerlerle döndürür. Tırnak içindeki adlar bot penceresindeki etiketlerdir
 | `C_EngMinYang` | int | 0..2000000000 | En az Yang |
 | `C_EngItemVnum` | int | 0..999999 | Alınacak eşya VNUM'u (0 = en ucuz) |
 | `C_EngShopTown` | int | 0..1 | Silah Satıcısı Köy 1 / Köy 2'de |
+| `C_TrEnable` | bool | | Zaman Çatlağı çalışıyor |
+| `C_TrDungeon` | int | 0..3 | Zindan: 0 Sürgün Mağarası, 1 Kırmızı Ejderha Kalesi, 2 Nemere Gözlemevi, 3 Efsunlu Orman |
+| `C_TrWatchBuy` | int | 1..1000 | Alınacak Cep Saati |
+| `C_TrWalk` | bool | | Zaman Çatlağı: platoda hep yürü (Teleport'a bakma) |
 
 ### security
 
