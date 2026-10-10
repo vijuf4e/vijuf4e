@@ -1095,8 +1095,8 @@ with the current values.
 | `C_OkeyGames` | int | 0..200 | Games to play |
 | `C_OkeyGapMs` | int | 50..3000 | Delay between moves (ms) |
 | `C_YutAuto` | bool | | Yutnori auto play |
-| `C_YutGames` | int | 0..999 | Games to play |
-| `C_YutGapMs` | int | 200..5000 | Delay (ms) |
+| `C_YutGames` | int | 0..999 | Games to play (0 = until boards run out) |
+| `C_YutGapMs` | int | 10..5000 | Delay (ms) |
 | `C_AlcEnable` | bool | | Alchemy: talk to Alchemist after Lv 30 |
 | `C_AlcShopMap` | bool | | Alchemy: go to shop map |
 | `C_AlcAllChars` | bool | | Alchemy: check all characters |

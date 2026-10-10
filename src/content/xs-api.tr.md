@@ -1100,8 +1100,8 @@ değerlerle döndürür. Tırnak içindeki adlar bot penceresindeki etiketlerdir
 | `C_OkeyGames` | int | 0..200 | Oynanacak oyun sayısı |
 | `C_OkeyGapMs` | int | 50..3000 | Hamleler arası gecikme (ms) |
 | `C_YutAuto` | bool | | Yutnori otomatik oyun |
-| `C_YutGames` | int | 0..999 | Oynanacak oyun sayısı |
-| `C_YutGapMs` | int | 200..5000 | Gecikme (ms) |
+| `C_YutGames` | int | 0..999 | Oynanacak oyun sayısı (0 = tahta bitene kadar) |
+| `C_YutGapMs` | int | 10..5000 | Gecikme (ms) |
 | `C_AlcEnable` | bool | | Simya: Lv 30'dan sonra Simyacı ile konuş |
 | `C_AlcShopMap` | bool | | Simya: market haritasına git |
 | `C_AlcAllChars` | bool | | Simya: tüm karakterleri kontrol et |
