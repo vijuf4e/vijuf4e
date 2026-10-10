@@ -5,6 +5,7 @@ import { useT } from "@/lib/i18n"
 import type { Text } from "@/lib/i18n"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/panel"
+import { Fx } from "@/components/ui/fx"
 import { PageHeader } from "@/components/layout/PageHeader"
 
 type Cell = Text | string | boolean
@@ -16,8 +17,8 @@ const groups: { title: Text; rows: { label: Text; values: Cell[] }[] }[] = [
     rows: [
       { label: { tr: "Oyun", en: "Game" }, values: ["Valorant", "Metin2"] },
       { label: { tr: "Ürün", en: "Product" }, values: ["Color Trigger Bot", "Bot"] },
-      { label: { tr: "Süre", en: "Duration" }, values: [{ tr: "1 ay", en: "1 month" }, { tr: "10 gün", en: "10 days" }] },
-      { label: { tr: "Client sayısı", en: "Clients" }, values: ["—", "6"] },
+      { label: { tr: "Süre", en: "Duration" }, values: [{ tr: "1 ay", en: "1 month" }, { tr: "10 / 20 / 30 gün", en: "10 / 20 / 30 days" }] },
+      { label: { tr: "Client sayısı", en: "Clients" }, values: ["—", "6 / 12 / 18 / 24 / 30"] },
       { label: { tr: "Ödeme", en: "Payment" }, values: ["Discord", { tr: "Kripto", en: "Crypto" }] },
     ],
   },
@@ -27,7 +28,7 @@ const groups: { title: Text; rows: { label: Text; values: Cell[] }[] }[] = [
       { label: { tr: "Çoklu renk algılama", en: "Multi-color detection" }, values: [true, false] },
       { label: { tr: "Spray ve tap modları", en: "Spray and tap modes" }, values: [true, false] },
       { label: { tr: "Config paylaşımı", en: "Config sharing" }, values: [true, false] },
-      { label: { tr: "Tek pencerede çoklu client", en: "Multiple clients in one window" }, values: [false, true] },
+      { label: { tr: "Çoklu client", en: "Multiple clients" }, values: [false, true] },
       { label: { tr: "Client durum takibi", en: "Client status tracking" }, values: [false, true] },
       { label: { tr: "Discord desteği", en: "Discord support" }, values: [true, true] },
     ],
@@ -76,8 +77,11 @@ export function Pricing({ path }: { path: string }) {
                       </span>
                       <span className="mb-4 flex items-baseline gap-1">
                         <span className="text-2xl font-bold">{plan.price}</span>
-                        <span className="text-xs text-neutral-600">{t(plan.period)}</span>
+                        <span className="text-xs text-neutral-600">
+                          {p.plans.length > 1 ? t("'den başlayan", "and up") : t(plan.period)}
+                        </span>
                       </span>
+                      <Fx price={plan.price} className="-mt-3 mb-4" />
                       <Button size="sm" className="mt-auto w-full" asChild>
                         <a href={`/buy/${p.slug}`} onClick={linkTo(`/buy/${p.slug}`)}>
                           {t("Satın Al", "Buy")}

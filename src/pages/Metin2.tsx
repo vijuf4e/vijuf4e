@@ -1,12 +1,12 @@
 import metin2Logo from "@/assets/metin2.png"
-import { ArrowRight, Download, Images, MonitorPlay, PlayCircle, Swords } from "lucide-react"
+import { ArrowRight, Download, Images, PlayCircle, Swords } from "lucide-react"
 import { linkTo } from "@/lib/router"
 import { DISCORD_URL, PATCHER_URL } from "@/lib/products"
 import { useT } from "@/lib/i18n"
 import { Button } from "@/components/ui/button"
 import { Badge, SectionCard } from "@/components/ui/panel"
+import { Fx } from "@/components/ui/fx"
 import { PageHeader } from "@/components/layout/PageHeader"
-import { ClientPanel } from "@/components/metin2/ClientPanel"
 import { PythonDocs } from "@/components/metin2/PythonDocs"
 import { Gallery } from "@/components/metin2/Gallery"
 
@@ -63,7 +63,8 @@ function Summary() {
         title="Multi-Client"
         footer={
           <>
-            {t("Fiyat", "Price")}: <b className="text-foreground">400₺</b> / {t("10 gün · 6 client", "10 days · 6 clients")}
+            {t("Fiyat", "Price")}: <b className="text-foreground">400₺</b>
+            {t("'den başlayan", "+")} <Fx price="400₺" /> · {t("10–30 gün · 6–30 client", "10–30 days · 6–30 clients")}
           </>
         }
         action={
@@ -80,8 +81,8 @@ function Summary() {
           </span>
           <div className="flex-1">
             <div className="flex items-center gap-2">
-              <h2 className="text-lg font-semibold">{t("Altı client. Tek pencere.", "Six clients. One window.")}</h2>
-              <Badge tone="yellow">Beta</Badge>
+              <h2 className="text-lg font-semibold">{t("Tüm clientlar. Tek panel.", "All your clients. One panel.")}</h2>
+              <Badge tone="green">{t("Aktif", "Active")}</Badge>
             </div>
             <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
               {t(
@@ -122,10 +123,6 @@ function Summary() {
             </a>
           ))}
         </div>
-      </SectionCard>
-
-      <SectionCard icon={MonitorPlay} title={t("Client Paneli", "Client Panel")} footer={t("Clientlar: 6/6 · Build v1.0.0", "Clients: 6/6 · Build v1.0.0")}>
-        <ClientPanel />
       </SectionCard>
 
       <SectionCard

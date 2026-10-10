@@ -2,11 +2,13 @@ import { useState } from "react"
 import { ChevronRight, CircleCheck, HelpCircle, Wallet } from "lucide-react"
 import { linkTo } from "@/lib/router"
 import { buyUrl, DISCORD_URL, productBySlug, products } from "@/lib/products"
-import type { Product } from "@/lib/products"
+import type { Plan, Product } from "@/lib/products"
 import { useLang, useT } from "@/lib/i18n"
 import { Button } from "@/components/ui/button"
 import { Badge, Card } from "@/components/ui/panel"
 import { Modal } from "@/components/ui/modal"
+import { Fx } from "@/components/ui/fx"
+import { useRates } from "@/lib/fx"
 import { PageHeader } from "@/components/layout/PageHeader"
 import { cn } from "@/lib/utils"
 
@@ -60,7 +62,10 @@ function Choose() {
           <div className="mt-6 flex items-end justify-between border-t border-border pt-4">
             <span>
               <span className="text-2xl font-bold">{p.plans[0].price}</span>
-              <span className="ml-1 text-xs text-neutral-600">{t(p.plans[0].period)}</span>
+              <span className="ml-1 text-xs text-neutral-600">
+                {p.plans.length > 1 ? t("'den başlayan", "and up") : t(p.plans[0].period)}
+              </span>
+              <Fx price={p.plans[0].price} className="ml-1" />
             </span>
             <span className="flex items-center gap-1 text-sm font-medium">
               {t("Devam et", "Continue")}{" "}
@@ -91,6 +96,7 @@ function Checkout({ product }: { product: Product }) {
   const t = useT()
   const lang = useLang()
   const plan = product.plans[planIndex]
+  const isGrid = product.plans.every((p) => p.days && p.clients)
   // Plans with a Game24card product go through the order API (crypto); the rest are sold on Discord
   const method = plan.productId ? t("Kripto (BTC, LTC)", "Crypto (BTC, LTC)") : "Discord"
   const payUrl = plan.productId ? buyUrl(plan.productId, lang) : DISCORD_URL
@@ -121,41 +127,45 @@ function Checkout({ product }: { product: Product }) {
 
         <div>
           <Label>{t("Paket", "Package")}</Label>
-          <div className="flex flex-col gap-3" role="radiogroup">
-            {product.plans.map((p, i) => {
-              const selected = i === planIndex
-              return (
-                <button
-                  key={p.label.en}
-                  type="button"
-                  role="radio"
-                  aria-checked={selected}
-                  onClick={() => setPlanIndex(i)}
-                  className={cn(
-                    "flex items-start gap-4 rounded-lg border px-5 py-4 text-left transition-colors",
-                    selected ? "border-accent bg-accent-soft" : "border-border hover:bg-muted/50"
-                  )}
-                >
-                  <span
+          {isGrid ? (
+            <PackageGrid plans={product.plans} value={planIndex} onChange={setPlanIndex} />
+          ) : (
+            <div className="flex flex-col gap-3" role="radiogroup">
+              {product.plans.map((p, i) => {
+                const selected = i === planIndex
+                return (
+                  <button
+                    key={p.label.en}
+                    type="button"
+                    role="radio"
+                    aria-checked={selected}
+                    onClick={() => setPlanIndex(i)}
                     className={cn(
-                      "mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border",
-                      selected ? "border-accent" : "border-neutral-300"
+                      "flex items-start gap-4 rounded-lg border px-5 py-4 text-left transition-colors",
+                      selected ? "border-accent bg-accent-soft" : "border-border hover:bg-muted/50"
                     )}
                   >
-                    {selected && <span className="h-2 w-2 rounded-full bg-accent" />}
-                  </span>
-                  <span>
-                    <span className="text-sm font-medium">{t(p.label)}</span>
-                    <span className="ml-2 text-sm text-success">
-                      {p.price}
-                      {t(p.period)}
+                    <span
+                      className={cn(
+                        "mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border",
+                        selected ? "border-accent" : "border-neutral-300"
+                      )}
+                    >
+                      {selected && <span className="h-2 w-2 rounded-full bg-accent" />}
                     </span>
-                    <span className="mt-1 block text-sm text-neutral-600">{t(product.description)}</span>
-                  </span>
-                </button>
-              )
-            })}
-          </div>
+                    <span>
+                      <span className="text-sm font-medium">{t(p.label)}</span>
+                      <span className="ml-2 text-sm text-success">
+                        {p.price}
+                        {t(p.period)}
+                      </span>
+                      <span className="mt-1 block text-sm text-neutral-600">{t(product.description)}</span>
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
+          )}
         </div>
 
         <div>
@@ -192,8 +202,12 @@ function Checkout({ product }: { product: Product }) {
         </dl>
         <div className="flex items-center justify-between py-5 text-lg font-semibold">
           <span>{t("Toplam", "Total")}</span>
-          <span>{plan.price}</span>
+          <span className="flex items-baseline gap-2">
+            {plan.listPrice && <s className="text-sm font-normal text-neutral-400">{plan.listPrice}</s>}
+            {plan.price}
+          </span>
         </div>
+        <Fx price={plan.price} className="-mt-3 mb-4 block text-right" />
         <Button className="w-full" size="lg" onClick={() => setPaying(true)}>
           {t("Satın Al", "Buy")}
         </Button>
@@ -241,7 +255,10 @@ function Checkout({ product }: { product: Product }) {
           <div>
             <span className="mb-2 block text-sm font-medium">{t("Tutar", "Amount")}</span>
             <div className="flex h-10 items-center justify-between rounded-md border border-input px-3 text-sm">
-              {plan.price}
+              <span className="flex items-baseline gap-2">
+                {plan.price}
+                <Fx price={plan.price} />
+              </span>
               <span className="text-xs font-medium text-neutral-600">{plan.price.endsWith("₺") ? "TRY" : "USD"}</span>
             </div>
           </div>
@@ -261,6 +278,148 @@ function Checkout({ product }: { product: Product }) {
           </div>
         </dl>
       </Modal>
+    </div>
+  )
+}
+
+function Segmented({
+  label,
+  options,
+  value,
+  onChange,
+}: {
+  label: string
+  options: { value: number; label: string }[]
+  value: number
+  onChange: (v: number) => void
+}) {
+  return (
+    <div>
+      <span className="mb-2 block text-xs font-medium uppercase tracking-wide text-neutral-600">{label}</span>
+      <div
+        className="grid gap-2"
+        style={{ gridTemplateColumns: `repeat(${options.length}, minmax(0, 1fr))` }}
+        role="radiogroup"
+        aria-label={label}
+      >
+        {options.map((o) => (
+          <button
+            key={o.value}
+            type="button"
+            role="radio"
+            aria-checked={o.value === value}
+            onClick={() => onChange(o.value)}
+            className={cn(
+              "h-10 rounded-md border text-sm font-medium transition-colors",
+              o.value === value ? "border-accent bg-accent-soft text-accent" : "border-border hover:bg-muted/50"
+            )}
+          >
+            {o.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+const amountOf = (p: Plan) => parseInt(p.price.replace(/\D/g, ""))
+
+/** Duration × client picker; every combination must exist in `plans` */
+function PackageGrid({ plans, value, onChange }: { plans: Plan[]; value: number; onChange: (i: number) => void }) {
+  const t = useT()
+  const current = plans[value]
+  const days = [...new Set(plans.map((p) => p.days!))]
+  const clients = [...new Set(plans.map((p) => p.clients!))]
+  const pick = (d: number, c: number) => onChange(plans.findIndex((p) => p.days === d && p.clients === c))
+  const rates = useRates()
+  const rateDate = rates?.date.split("-").reverse().join(".")
+  const perDay = `${(amountOf(current) / (current.days! * current.clients!)).toLocaleString("tr-TR", { maximumFractionDigits: 2 })}₺`
+
+  return (
+    <div className="flex flex-col gap-5">
+      <Segmented
+        label={t("Süre", "Duration")}
+        options={days.map((d) => ({ value: d, label: t(`${d} Gün`, `${d} Days`) }))}
+        value={current.days!}
+        onChange={(d) => pick(d, current.clients!)}
+      />
+      <Segmented
+        label={t("Client sayısı", "Clients")}
+        options={clients.map((c) => ({ value: c, label: String(c) }))}
+        value={current.clients!}
+        onChange={(c) => pick(current.days!, c)}
+      />
+
+      <div className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-accent bg-accent-soft px-5 py-4">
+        <span>
+          <span className="flex items-center gap-2 text-sm font-medium">
+            {t(current.label)}
+            {current.tag && <Badge tone="green">{t(current.tag)}</Badge>}
+          </span>
+          <span className="mt-1 block text-xs text-neutral-600">
+            {t(`Client başına günlük ${perDay}`, `${perDay} per client per day`)}
+          </span>
+        </span>
+        <span className="flex flex-col items-end gap-0.5">
+          <span className="flex items-baseline gap-2">
+            {current.listPrice && <s className="text-sm text-neutral-400">{current.listPrice}</s>}
+            <span className="text-xl font-bold">{current.price}</span>
+            {current.discount && <Badge tone="green">%{current.discount}</Badge>}
+          </span>
+          <Fx price={current.price} />
+        </span>
+      </div>
+
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[560px] text-center text-sm">
+          <thead>
+            <tr className="text-xs text-neutral-600">
+              <th className="py-2 text-left font-medium">{t("Süre / Client", "Duration / Clients")}</th>
+              {clients.map((c) => (
+                <th key={c} className="py-2 font-medium">
+                  {c} Client
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {days.map((d) => (
+              <tr key={d} className="border-t border-border">
+                <td className="py-2 text-left text-neutral-600">{t(`${d} Gün`, `${d} Days`)}</td>
+                {clients.map((c) => {
+                  const p = plans.find((x) => x.days === d && x.clients === c)!
+                  const selected = p === current
+                  return (
+                    <td key={c} className="p-1">
+                      <button
+                        type="button"
+                        onClick={() => pick(d, c)}
+                        className={cn(
+                          "w-full rounded-md px-2 py-1.5 transition-colors",
+                          selected ? "bg-accent text-white" : "hover:bg-muted"
+                        )}
+                      >
+                        <span className="block font-semibold">{p.price}</span>
+                        <span className={cn("block text-[11px]", selected ? "text-white/80" : "text-success")}>
+                          {p.discount ? `%${p.discount} ${t("indirim", "off")}` : "—"}
+                        </span>
+                      </button>
+                    </td>
+                  )
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {rates && (
+        <p className="text-xs text-neutral-500">
+          {t(
+            `USD ve EUR tutarları bilgi amaçlıdır; ${rateDate} tarihli kur ile hesaplanır. Ödeme TL tutarı üzerinden alınır.`,
+            `USD and EUR amounts are for reference, converted at the ${rateDate} rate. Payment is based on the TRY amount.`
+          )}
+        </p>
+      )}
     </div>
   )
 }

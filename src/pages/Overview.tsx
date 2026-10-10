@@ -5,6 +5,7 @@ import { products } from "@/lib/products"
 import { useLang, useT } from "@/lib/i18n"
 import { Button } from "@/components/ui/button"
 import { Badge, SectionTitle } from "@/components/ui/panel"
+import { Fx } from "@/components/ui/fx"
 import { PageHeader } from "@/components/layout/PageHeader"
 
 const filters = [
@@ -92,7 +93,10 @@ export function Overview({ path }: { path: string }) {
               </span>
               <span className="hidden text-right sm:block">
                 <span className="block text-sm font-semibold">{p.plans[0].price}</span>
-                <span className="block text-xs text-muted-foreground">{t(p.plans[0].period)}</span>
+                <span className="block text-xs text-muted-foreground">
+                  {p.plans.length > 1 ? t("'den başlayan", "and up") : t(p.plans[0].period)}
+                </span>
+                <Fx price={p.plans[0].price} className="block text-[11px]" />
               </span>
               <ChevronRight className="h-4 w-4 text-neutral-400 transition-transform group-hover:translate-x-0.5" />
             </a>
