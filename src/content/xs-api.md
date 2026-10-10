@@ -958,6 +958,7 @@ with the current values.
 | `g_BoostSpeed` | int | 100..1500 | Move Speed value (speed ratio x 100; 100 = normal) |
 | `C_AutoReviveHere` | bool | | Revive Here |
 | `C_AutoReviveCity` | bool | | Revive in Town |
+| `C_AutoReviveDelaySec` | int | 1..170 | Revive Here: seconds after death before reviving (the server revives in town by itself at 180) |
 | `C_ReviveHpWait` | bool | | Revive HP: after reviving, no damage until HP reaches `C_ReviveHpPct` |
 | `C_ReviveHpPct` | int | 1..100 | HP % required after reviving |
 | `C_AutoMount` | bool | | Auto Mount: stay mounted; with Auto Skill, dismount, cast, remount |
@@ -995,6 +996,7 @@ with the current values.
 | `C_ExploitAutoSleep` | bool | | Exploit Auto Sleep |
 | `C_ExploitSleepValue` | int | 0..1000 | Exploit sleep (ms) when Auto Sleep is off |
 | `C_AttackDelayMs` | int | 50..500 | Attack delay (ms) |
+| `C_AttackMaxTargets` | int | 1..30 | Limit: how many mobs are hit at the same time (the old engine without the frame hook caps at 15) |
 | `C_RangeDistance` | float | 0..100000 | Damage range (Fov) |
 | `C_DmgMob` | bool | | Target mobs |
 | `C_DmgStone` | bool | | Target stones |

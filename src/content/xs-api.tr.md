@@ -963,6 +963,7 @@ değerlerle döndürür. Tırnak içindeki adlar bot penceresindeki etiketlerdir
 | `g_BoostSpeed` | int | 100..1500 | Move Speed değeri (hız oranı x 100; 100 = normal) |
 | `C_AutoReviveHere` | bool | | "Revive Here" (burada diril) |
 | `C_AutoReviveCity` | bool | | "Revive in Town" (şehirde diril) |
+| `C_AutoReviveDelaySec` | int | 1..170 | "Revive Here": ölümden kaç sn sonra dirilsin (180 sn'de sunucu kendisi şehirde başlatır) |
 | `C_ReviveHpWait` | bool | | "Revive HP": dirildikten sonra can `C_ReviveHpPct`'e gelene kadar hasar yok |
 | `C_ReviveHpPct` | int | 1..100 | Dirildikten sonra beklenen can % |
 | `C_AutoMount` | bool | | "Auto Mount": binekte kal; Auto Skill ile in, beceriyi bas, tekrar bin |
@@ -1000,6 +1001,7 @@ değerlerle döndürür. Tırnak içindeki adlar bot penceresindeki etiketlerdir
 | `C_ExploitAutoSleep` | bool | | Exploit Auto Sleep |
 | `C_ExploitSleepValue` | int | 0..1000 | Auto Sleep kapalıyken Exploit beklemesi (ms) |
 | `C_AttackDelayMs` | int | 50..500 | Saldırı gecikmesi (ms) |
+| `C_AttackMaxTargets` | int | 1..30 | "Limit": aynı anda kaç moba vurulur (kare kancası olmayan eski motor en fazla 15) |
 | `C_RangeDistance` | float | 0..100000 | Hasar menzili (Fov) |
 | `C_DmgMob` | bool | | Mobları hedefle |
 | `C_DmgStone` | bool | | Taşları hedefle |
