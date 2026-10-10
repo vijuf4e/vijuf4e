@@ -1067,7 +1067,7 @@ değerlerle döndürür. Tırnak içindeki adlar bot penceresindeki etiketlerdir
 | `C_AutoSellThreshold` | int | 0..180 | Boş slot sınırı |
 | `C_SellNpcKind` | int | 0..1 | 0 = Satıcı, 1 = Balıkçı |
 | `C_SellTown` | int | 0..1 | Köy 1 / Köy 2 |
-| `C_FastSell` | bool | | Hızlı satış |
+| `C_FastSell` | bool | | Anında satış (Insta sell) |
 | `C_UseEnasir` | bool | | Satıcıya gitmek yerine Enasir'i (çağrılan gezgin satıcı) çağırıp ona sat |
 
 ### items

@@ -1062,7 +1062,7 @@ with the current values.
 | `C_AutoSellThreshold` | int | 0..180 | Free slots limit |
 | `C_SellNpcKind` | int | 0..1 | 0 = Vendor, 1 = Fisherman |
 | `C_SellTown` | int | 0..1 | Village 1 / Village 2 |
-| `C_FastSell` | bool | | Fast sell |
+| `C_FastSell` | bool | | Insta sell |
 | `C_UseEnasir` | bool | | Sell to Enasir (summoned traveling merchant) instead of walking to the vendor |
 
 ### items
