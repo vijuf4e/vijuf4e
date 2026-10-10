@@ -1,5 +1,5 @@
 import metin2Logo from "@/assets/metin2.png"
-import { Download, MonitorPlay, PlayCircle, Swords } from "lucide-react"
+import { ArrowRight, Download, Images, MonitorPlay, PlayCircle, Swords } from "lucide-react"
 import { linkTo } from "@/lib/router"
 import { DISCORD_URL, PATCHER_URL } from "@/lib/products"
 import { useT } from "@/lib/i18n"
@@ -8,9 +8,11 @@ import { Badge, SectionCard } from "@/components/ui/panel"
 import { PageHeader } from "@/components/layout/PageHeader"
 import { ClientPanel } from "@/components/metin2/ClientPanel"
 import { PythonDocs } from "@/components/metin2/PythonDocs"
+import { Gallery } from "@/components/metin2/Gallery"
 
 const tabs = [
   { href: "/metin2", label: { tr: "Genel Bakış", en: "Overview" } },
+  { href: "/metin2/gallery", label: { tr: "Galeri", en: "Gallery" } },
   { href: "/metin2/video", label: { tr: "Video", en: "Video" } },
   { href: "/metin2/python", label: { tr: "Python API", en: "Python API" } },
 ]
@@ -20,7 +22,7 @@ const youtubeId = "r5rVcPRuus4"
 export function Metin2({ path }: { path: string }) {
   const t = useT()
   // The API reference needs room for its side index
-  const width = path === "/metin2/python" ? "max-w-6xl" : "max-w-5xl"
+  const width = path === "/metin2/python" || path === "/metin2/gallery" ? "max-w-6xl" : "max-w-5xl"
   return (
     <>
       <PageHeader
@@ -32,6 +34,8 @@ export function Metin2({ path }: { path: string }) {
       <div className={`mx-auto flex w-full ${width} flex-col gap-6 px-4 py-8 sm:px-6`}>
         {path === "/metin2/python" ? (
           <PythonDocs />
+        ) : path === "/metin2/gallery" ? (
+          <Gallery />
         ) : path === "/metin2/video" ? (
           <SectionCard icon={PlayCircle} title={t("Tanıtım Videosu", "Showcase Video")} bodyClassName="p-0">
             <iframe
@@ -86,6 +90,37 @@ function Summary() {
               )}
             </p>
           </div>
+        </div>
+      </SectionCard>
+
+      <SectionCard
+        icon={Images}
+        title={t("Galeri", "Gallery")}
+        footer={t("38 ekran görüntüsü · client ve panel", "38 screenshots · client and panel")}
+        action={
+          <Button size="sm" variant="outline" asChild>
+            <a href="/metin2/gallery" onClick={linkTo("/metin2/gallery")}>
+              {t("Tümünü gör", "View all")} <ArrowRight className="h-3.5 w-3.5" />
+            </a>
+          </Button>
+        }
+      >
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+          {["dll_01_main", "dll_02_bots_farm", "panel_01_main"].map((f) => (
+            <a
+              key={f}
+              href="/metin2/gallery"
+              onClick={linkTo("/metin2/gallery")}
+              className="group block aspect-[1612/872] overflow-hidden rounded-lg border border-border bg-neutral-900"
+            >
+              <img
+                src={`/metin2/gallery/thumb/${f}.webp`}
+                alt=""
+                loading="lazy"
+                className="h-full w-full object-cover object-left-top transition-transform duration-300 group-hover:scale-[1.03]"
+              />
+            </a>
+          ))}
         </div>
       </SectionCard>
 

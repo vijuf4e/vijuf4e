@@ -38,6 +38,7 @@ const items: Item[] = [
     icon: metin2Logo,
     children: [
       { href: "/metin2", label: overview },
+      { href: "/metin2/gallery", label: { tr: "Galeri", en: "Gallery" } },
       { href: "/metin2/video", label: { tr: "Video", en: "Video" } },
       { href: "/metin2/python", label: { tr: "Python API", en: "Python API" } },
       { href: "/buy/metin2", label: buy },
