@@ -1131,6 +1131,64 @@ değerlerle döndürür. Tırnak içindeki adlar bot penceresindeki etiketlerdir
 | `C_TrWatchBuy` | int | 1..1000 | Alınacak Cep Saati |
 | `C_TrWalk` | bool | | Zaman Çatlağı: platoda hep yürü (Teleport'a bakma) |
 
+### bots
+
+| Ad | Tür | Aralık | Anlamı |
+|---|---|---|---|
+| `C_FishOn` | bool | | Instant fishing çalışıyor (oltayla suya bakarak dur) |
+| `C_FishBait` | int | 0..999999 | Her atıştan önce kullanılan yem VNUM'u (0 = yem yok) |
+| `C_FishDelayMs` | int | 0..14000 | Mini oyun açıldıktan sonra bekleme (ms) |
+| `C_FishGapMs` | int | 0..5000 | Sonuçtan sonra sonraki atışa kadar bekleme (ms) |
+| `C_FishGolden` | int | 0..3 | Altın ton balığı cevabı: 0 Bana sor, 1 Serbest bırak, 2 Kes, 3 Yem olarak kullan |
+| `C_FishSmallBait` | bool | | Önce Minik Balık'ı (27802) yem olarak kullan, sonra yem VNUM'unu |
+| `C_FishGrill` | bool | | Yeterince çiğ balık olunca kamp ateşinde ızgara yap |
+| `C_FishGrillAt` | int | 1..200 | Bu kadar ızgaralanabilir balık olunca ızgara |
+| `C_FishBuyBait` | bool | | Yem bitince Balıkçı'dan al |
+| `C_FishBaitBuy` | int | 1..1000 | Yemi bu sayıya tamamla |
+| `C_FishBuyFire` | bool | | Kamp ateşi bitince Balıkçı'dan al |
+| `C_FishFireBuy` | int | 1..50 | Kamp ateşini bu sayıya tamamla |
+| `C_FishIt_27803` | int | 0..6 | Envanter dolunca balık 27803 (ve ızgarası 27863): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27804` | int | 0..6 | Envanter dolunca balık 27804 (ve ızgarası 27864): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27805` | int | 0..6 | Envanter dolunca balık 27805 (ve ızgarası 27865): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27806` | int | 0..6 | Envanter dolunca balık 27806 (ve ızgarası 27866): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27807` | int | 0..6 | Envanter dolunca balık 27807 (ve ızgarası 27867): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27808` | int | 0..6 | Envanter dolunca balık 27808 (ve ızgarası 27868): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27809` | int | 0..6 | Envanter dolunca balık 27809 (ve ızgarası 27869): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27810` | int | 0..6 | Envanter dolunca balık 27810 (ve ızgarası 27870): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27811` | int | 0..6 | Envanter dolunca balık 27811 (ve ızgarası 27871): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27812` | int | 0..6 | Envanter dolunca balık 27812 (ve ızgarası 27872): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27813` | int | 0..6 | Envanter dolunca balık 27813 (ve ızgarası 27873): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27814` | int | 0..6 | Envanter dolunca balık 27814 (ve ızgarası 27874): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27815` | int | 0..6 | Envanter dolunca balık 27815 (ve ızgarası 27875): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27816` | int | 0..6 | Envanter dolunca balık 27816 (ve ızgarası 27876): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27817` | int | 0..6 | Envanter dolunca balık 27817 (ve ızgarası 27877): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27818` | int | 0..6 | Envanter dolunca balık 27818 (ve ızgarası 27878): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27819` | int | 0..6 | Envanter dolunca balık 27819 (ve ızgarası 27879): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27820` | int | 0..6 | Envanter dolunca balık 27820 (ve ızgarası 27880): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27821` | int | 0..6 | Envanter dolunca balık 27821 (ve ızgarası 27881): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27822` | int | 0..6 | Envanter dolunca balık 27822 (ve ızgarası 27882): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27823` | int | 0..6 | Envanter dolunca balık 27823 (ve ızgarası 27883): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27824` | int | 0..6 | Envanter dolunca balık 27824 (ve ızgarası 27884): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27825` | int | 0..6 | Envanter dolunca balık 27825 (ve ızgarası 27885): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27826` | int | 0..6 | Envanter dolunca balık 27826 (ve ızgarası 27886): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27827` | int | 0..6 | Envanter dolunca balık 27827 (ve ızgarası 27887): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27828` | int | 0..6 | Envanter dolunca balık 27828 (ve ızgarası 27888): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27829` | int | 0..6 | Envanter dolunca balık 27829 (ve ızgarası 27889): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27830` | int | 0..6 | Envanter dolunca balık 27830 (ve ızgarası 27890): 0 tut, 1 yere at, 2 Balıkçıya sat; +4 = ızgara yapma |
+| `C_FishIt_27798` | int | 0..6 | Envanter dolunca Tatlı su karidesi 27798: 0 tut, 1 yere at, 2 Balıkçıya sat |
+| `C_FishIt_70048` | int | 0..6 | Envanter dolunca Görünmezlik pelerini 70048: 0 tut, 1 yere at, 2 Balıkçıya sat |
+| `C_FishIt_70049` | int | 0..6 | Envanter dolunca Lucy'nin Yüzüğü 70049: 0 tut, 1 yere at, 2 Balıkçıya sat |
+| `C_FishIt_70050` | int | 0..6 | Envanter dolunca Bilge Kralın Sembolü 70050: 0 tut, 1 yere at, 2 Balıkçıya sat |
+| `C_FishIt_70051` | int | 0..6 | Envanter dolunca Bilge Kralın Eldiveni 70051: 0 tut, 1 yere at, 2 Balıkçıya sat |
+| `C_FishIt_50002` | int | 0..6 | Envanter dolunca Altın Yüzük 50002: 0 tut, 1 yere at, 2 Balıkçıya sat |
+| `C_FishIt_27610` | int | 0..6 | Envanter dolunca Balıkçılık Küresi 27610: 0 tut, 1 yere at, 2 Balıkçıya sat |
+| `C_FishIt_70201` | int | 0..6 | Envanter dolunca saç boyası 70201: 0 tut, 1 yere at, 2 Balıkçıya sat |
+| `C_FishIt_70202` | int | 0..6 | Envanter dolunca saç boyası 70202: 0 tut, 1 yere at, 2 Balıkçıya sat |
+| `C_FishIt_70203` | int | 0..6 | Envanter dolunca saç boyası 70203: 0 tut, 1 yere at, 2 Balıkçıya sat |
+| `C_FishIt_70204` | int | 0..6 | Envanter dolunca saç boyası 70204: 0 tut, 1 yere at, 2 Balıkçıya sat |
+| `C_FishIt_70205` | int | 0..6 | Envanter dolunca saç boyası 70205: 0 tut, 1 yere at, 2 Balıkçıya sat |
+| `C_FishIt_70206` | int | 0..6 | Envanter dolunca saç boyası 70206: 0 tut, 1 yere at, 2 Balıkçıya sat |
+
 ### security
 
 | Ad | Tür | Aralık | Anlamı |

@@ -1126,6 +1126,64 @@ with the current values.
 | `C_TrWatchBuy` | int | 1..1000 | Pocket Watches to buy |
 | `C_TrWalk` | bool | | Time Rift: always walk on the Plateau (ignore Teleport) |
 
+### bots
+
+| Name | Type | Range | Meaning |
+|---|---|---|---|
+| `C_FishOn` | bool | | Instant fishing running (stand facing the water with a rod) |
+| `C_FishBait` | int | 0..999999 | Bait VNUM used before each cast (0 = no bait) |
+| `C_FishDelayMs` | int | 0..14000 | Wait after the fishing game opens (ms) |
+| `C_FishGapMs` | int | 0..5000 | Wait after the result before the next cast (ms) |
+| `C_FishGolden` | int | 0..3 | Golden tuna answer: 0 Ask me, 1 Release, 2 Cut, 3 Use as bait |
+| `C_FishSmallBait` | bool | | Use Small Fish (27802) as bait first, then the bait VNUM |
+| `C_FishGrill` | bool | | Grill fish at a campfire when enough raw fish |
+| `C_FishGrillAt` | int | 1..200 | Grill when this many grillable fish |
+| `C_FishBuyBait` | bool | | Buy bait from the Fisherman when out |
+| `C_FishBaitBuy` | int | 1..1000 | Buy bait up to this many |
+| `C_FishBuyFire` | bool | | Buy campfires from the Fisherman when out |
+| `C_FishFireBuy` | int | 1..50 | Buy campfires up to this many |
+| `C_FishIt_27803` | int | 0..6 | Inventory-full action for fish 27803 (and grilled 27863): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27804` | int | 0..6 | Inventory-full action for fish 27804 (and grilled 27864): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27805` | int | 0..6 | Inventory-full action for fish 27805 (and grilled 27865): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27806` | int | 0..6 | Inventory-full action for fish 27806 (and grilled 27866): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27807` | int | 0..6 | Inventory-full action for fish 27807 (and grilled 27867): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27808` | int | 0..6 | Inventory-full action for fish 27808 (and grilled 27868): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27809` | int | 0..6 | Inventory-full action for fish 27809 (and grilled 27869): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27810` | int | 0..6 | Inventory-full action for fish 27810 (and grilled 27870): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27811` | int | 0..6 | Inventory-full action for fish 27811 (and grilled 27871): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27812` | int | 0..6 | Inventory-full action for fish 27812 (and grilled 27872): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27813` | int | 0..6 | Inventory-full action for fish 27813 (and grilled 27873): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27814` | int | 0..6 | Inventory-full action for fish 27814 (and grilled 27874): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27815` | int | 0..6 | Inventory-full action for fish 27815 (and grilled 27875): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27816` | int | 0..6 | Inventory-full action for fish 27816 (and grilled 27876): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27817` | int | 0..6 | Inventory-full action for fish 27817 (and grilled 27877): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27818` | int | 0..6 | Inventory-full action for fish 27818 (and grilled 27878): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27819` | int | 0..6 | Inventory-full action for fish 27819 (and grilled 27879): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27820` | int | 0..6 | Inventory-full action for fish 27820 (and grilled 27880): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27821` | int | 0..6 | Inventory-full action for fish 27821 (and grilled 27881): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27822` | int | 0..6 | Inventory-full action for fish 27822 (and grilled 27882): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27823` | int | 0..6 | Inventory-full action for fish 27823 (and grilled 27883): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27824` | int | 0..6 | Inventory-full action for fish 27824 (and grilled 27884): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27825` | int | 0..6 | Inventory-full action for fish 27825 (and grilled 27885): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27826` | int | 0..6 | Inventory-full action for fish 27826 (and grilled 27886): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27827` | int | 0..6 | Inventory-full action for fish 27827 (and grilled 27887): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27828` | int | 0..6 | Inventory-full action for fish 27828 (and grilled 27888): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27829` | int | 0..6 | Inventory-full action for fish 27829 (and grilled 27889): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27830` | int | 0..6 | Inventory-full action for fish 27830 (and grilled 27890): 0 keep, 1 drop, 2 sell to the Fisherman; +4 = do not grill |
+| `C_FishIt_27798` | int | 0..6 | Inventory-full action for Freshwater shrimp 27798: 0 keep, 1 drop, 2 sell to the Fisherman |
+| `C_FishIt_70048` | int | 0..6 | Inventory-full action for Invisibility Cape 70048: 0 keep, 1 drop, 2 sell to the Fisherman |
+| `C_FishIt_70049` | int | 0..6 | Inventory-full action for Lucy's Ring 70049: 0 keep, 1 drop, 2 sell to the Fisherman |
+| `C_FishIt_70050` | int | 0..6 | Inventory-full action for Wise King's Symbol 70050: 0 keep, 1 drop, 2 sell to the Fisherman |
+| `C_FishIt_70051` | int | 0..6 | Inventory-full action for Wise King's Glove 70051: 0 keep, 1 drop, 2 sell to the Fisherman |
+| `C_FishIt_50002` | int | 0..6 | Inventory-full action for Gold Ring 50002: 0 keep, 1 drop, 2 sell to the Fisherman |
+| `C_FishIt_27610` | int | 0..6 | Inventory-full action for Fishing Orb 27610: 0 keep, 1 drop, 2 sell to the Fisherman |
+| `C_FishIt_70201` | int | 0..6 | Inventory-full action for hair dye 70201: 0 keep, 1 drop, 2 sell to the Fisherman |
+| `C_FishIt_70202` | int | 0..6 | Inventory-full action for hair dye 70202: 0 keep, 1 drop, 2 sell to the Fisherman |
+| `C_FishIt_70203` | int | 0..6 | Inventory-full action for hair dye 70203: 0 keep, 1 drop, 2 sell to the Fisherman |
+| `C_FishIt_70204` | int | 0..6 | Inventory-full action for hair dye 70204: 0 keep, 1 drop, 2 sell to the Fisherman |
+| `C_FishIt_70205` | int | 0..6 | Inventory-full action for hair dye 70205: 0 keep, 1 drop, 2 sell to the Fisherman |
+| `C_FishIt_70206` | int | 0..6 | Inventory-full action for hair dye 70206: 0 keep, 1 drop, 2 sell to the Fisherman |
+
 ### security
 
 | Name | Type | Range | Meaning |
