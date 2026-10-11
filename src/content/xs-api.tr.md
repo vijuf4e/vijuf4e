@@ -1130,6 +1130,13 @@ değerlerle döndürür. Tırnak içindeki adlar bot penceresindeki etiketlerdir
 | `C_TrDungeon` | int | 0..3 | Zindan: 0 Sürgün Mağarası, 1 Kırmızı Ejderha Kalesi, 2 Nemere Gözlemevi, 3 Efsunlu Orman |
 | `C_TrWatchBuy` | int | 1..1000 | Alınacak Cep Saati |
 | `C_TrWalk` | bool | | Zaman Çatlağı: platoda hep yürü (Teleport'a bakma) |
+| `C_GldEnable` | bool | | Lonca bağışı çalışıyor |
+| `C_GldAttend` | bool | | Lonca: günlük katılım ödülünü al |
+| `C_GldDonate` | bool | | Lonca: bağış yap (küçük bağış, 120k Yang) |
+| `C_GldDonateCount` | int | 1..3 | Lonca: karakter başına günlük bağış sayısı |
+| `C_GldAllChars` | bool | | Lonca: hesaptaki bütün karakterleri dolaş |
+| `C_GldExitDone` | bool | | Lonca: bitince istemciyi kapat (slot Finished olur) |
+| `C_GldKeepYang` | int | 0..2000000000 | Lonca: bağıştan sonra cepte kalacak Yang |
 
 ### bots
 

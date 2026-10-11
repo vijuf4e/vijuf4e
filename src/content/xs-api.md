@@ -1125,6 +1125,13 @@ with the current values.
 | `C_TrDungeon` | int | 0..3 | Dungeon: 0 Grotto of Exile, 1 Red Dragon Fortress, 2 Nemere's Watchtower, 3 Enchanted Forest |
 | `C_TrWatchBuy` | int | 1..1000 | Pocket Watches to buy |
 | `C_TrWalk` | bool | | Time Rift: always walk on the Plateau (ignore Teleport) |
+| `C_GldEnable` | bool | | Guild Donation running |
+| `C_GldAttend` | bool | | Guild: claim the daily attendance reward |
+| `C_GldDonate` | bool | | Guild: donate (small donation, 120k Yang) |
+| `C_GldDonateCount` | int | 1..3 | Guild: donations per character per day |
+| `C_GldAllChars` | bool | | Guild: go through every character on the account |
+| `C_GldExitDone` | bool | | Guild: close the client when done (slot shows Finished) |
+| `C_GldKeepYang` | int | 0..2000000000 | Guild: Yang to keep after a donation |
 
 ### bots
 
