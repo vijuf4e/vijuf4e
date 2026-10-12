@@ -1075,6 +1075,70 @@ with the current values.
 | `C_AttrDropEnabled` | bool | | Bonus filter: Drop table on |
 | `C_AttrLangTR` | bool | | Bonus names in Turkish |
 | `C_UseItemBot` | bool | | Use Item running |
+| `C_EncMode` | int | 0..1 | Costume enchant job: 0 = Transform Costume (70063, attribute count), 1 = Enchant Costume (70064, alternatives) |
+| `C_EncTarget` | int | 1..3 | Transform: stop when the costume has at least this many attributes |
+| `C_EncDelayMs` | int | 50..5000 | Costume enchant: wait after each result before the next use (ms) |
+| `C_EncBuy` | bool | | Costume enchant: buy a stack of 50 at the General Store when out (stand next to it; stops when yang is short) |
+| `C_EncA1T1` | int | 0..32767 | Enchant alternative #1, row 1: bonus type (0 = empty row) |
+| `C_EncA1V1` | int | 0..32767 | Enchant alternative #1, row 1: minimum value (bonus >= value) |
+| `C_EncA1T2` | int | 0..32767 | Enchant alternative #1, row 2: bonus type (0 = empty row) |
+| `C_EncA1V2` | int | 0..32767 | Enchant alternative #1, row 2: minimum value (bonus >= value) |
+| `C_EncA1T3` | int | 0..32767 | Enchant alternative #1, row 3: bonus type (0 = empty row) |
+| `C_EncA1V3` | int | 0..32767 | Enchant alternative #1, row 3: minimum value (bonus >= value) |
+| `C_EncA2T1` | int | 0..32767 | Enchant alternative #2, row 1: bonus type (0 = empty row) |
+| `C_EncA2V1` | int | 0..32767 | Enchant alternative #2, row 1: minimum value (bonus >= value) |
+| `C_EncA2T2` | int | 0..32767 | Enchant alternative #2, row 2: bonus type (0 = empty row) |
+| `C_EncA2V2` | int | 0..32767 | Enchant alternative #2, row 2: minimum value (bonus >= value) |
+| `C_EncA2T3` | int | 0..32767 | Enchant alternative #2, row 3: bonus type (0 = empty row) |
+| `C_EncA2V3` | int | 0..32767 | Enchant alternative #2, row 3: minimum value (bonus >= value) |
+| `C_EncA3T1` | int | 0..32767 | Enchant alternative #3, row 1: bonus type (0 = empty row) |
+| `C_EncA3V1` | int | 0..32767 | Enchant alternative #3, row 1: minimum value (bonus >= value) |
+| `C_EncA3T2` | int | 0..32767 | Enchant alternative #3, row 2: bonus type (0 = empty row) |
+| `C_EncA3V2` | int | 0..32767 | Enchant alternative #3, row 2: minimum value (bonus >= value) |
+| `C_EncA3T3` | int | 0..32767 | Enchant alternative #3, row 3: bonus type (0 = empty row) |
+| `C_EncA3V3` | int | 0..32767 | Enchant alternative #3, row 3: minimum value (bonus >= value) |
+| `C_EncA4T1` | int | 0..32767 | Enchant alternative #4, row 1: bonus type (0 = empty row) |
+| `C_EncA4V1` | int | 0..32767 | Enchant alternative #4, row 1: minimum value (bonus >= value) |
+| `C_EncA4T2` | int | 0..32767 | Enchant alternative #4, row 2: bonus type (0 = empty row) |
+| `C_EncA4V2` | int | 0..32767 | Enchant alternative #4, row 2: minimum value (bonus >= value) |
+| `C_EncA4T3` | int | 0..32767 | Enchant alternative #4, row 3: bonus type (0 = empty row) |
+| `C_EncA4V3` | int | 0..32767 | Enchant alternative #4, row 3: minimum value (bonus >= value) |
+| `C_EncA5T1` | int | 0..32767 | Enchant alternative #5, row 1: bonus type (0 = empty row) |
+| `C_EncA5V1` | int | 0..32767 | Enchant alternative #5, row 1: minimum value (bonus >= value) |
+| `C_EncA5T2` | int | 0..32767 | Enchant alternative #5, row 2: bonus type (0 = empty row) |
+| `C_EncA5V2` | int | 0..32767 | Enchant alternative #5, row 2: minimum value (bonus >= value) |
+| `C_EncA5T3` | int | 0..32767 | Enchant alternative #5, row 3: bonus type (0 = empty row) |
+| `C_EncA5V3` | int | 0..32767 | Enchant alternative #5, row 3: minimum value (bonus >= value) |
+| `C_EncA6T1` | int | 0..32767 | Enchant alternative #6, row 1: bonus type (0 = empty row) |
+| `C_EncA6V1` | int | 0..32767 | Enchant alternative #6, row 1: minimum value (bonus >= value) |
+| `C_EncA6T2` | int | 0..32767 | Enchant alternative #6, row 2: bonus type (0 = empty row) |
+| `C_EncA6V2` | int | 0..32767 | Enchant alternative #6, row 2: minimum value (bonus >= value) |
+| `C_EncA6T3` | int | 0..32767 | Enchant alternative #6, row 3: bonus type (0 = empty row) |
+| `C_EncA6V3` | int | 0..32767 | Enchant alternative #6, row 3: minimum value (bonus >= value) |
+| `C_EncA7T1` | int | 0..32767 | Enchant alternative #7, row 1: bonus type (0 = empty row) |
+| `C_EncA7V1` | int | 0..32767 | Enchant alternative #7, row 1: minimum value (bonus >= value) |
+| `C_EncA7T2` | int | 0..32767 | Enchant alternative #7, row 2: bonus type (0 = empty row) |
+| `C_EncA7V2` | int | 0..32767 | Enchant alternative #7, row 2: minimum value (bonus >= value) |
+| `C_EncA7T3` | int | 0..32767 | Enchant alternative #7, row 3: bonus type (0 = empty row) |
+| `C_EncA7V3` | int | 0..32767 | Enchant alternative #7, row 3: minimum value (bonus >= value) |
+| `C_EncA8T1` | int | 0..32767 | Enchant alternative #8, row 1: bonus type (0 = empty row) |
+| `C_EncA8V1` | int | 0..32767 | Enchant alternative #8, row 1: minimum value (bonus >= value) |
+| `C_EncA8T2` | int | 0..32767 | Enchant alternative #8, row 2: bonus type (0 = empty row) |
+| `C_EncA8V2` | int | 0..32767 | Enchant alternative #8, row 2: minimum value (bonus >= value) |
+| `C_EncA8T3` | int | 0..32767 | Enchant alternative #8, row 3: bonus type (0 = empty row) |
+| `C_EncA8V3` | int | 0..32767 | Enchant alternative #8, row 3: minimum value (bonus >= value) |
+| `C_EncA9T1` | int | 0..32767 | Enchant alternative #9, row 1: bonus type (0 = empty row) |
+| `C_EncA9V1` | int | 0..32767 | Enchant alternative #9, row 1: minimum value (bonus >= value) |
+| `C_EncA9T2` | int | 0..32767 | Enchant alternative #9, row 2: bonus type (0 = empty row) |
+| `C_EncA9V2` | int | 0..32767 | Enchant alternative #9, row 2: minimum value (bonus >= value) |
+| `C_EncA9T3` | int | 0..32767 | Enchant alternative #9, row 3: bonus type (0 = empty row) |
+| `C_EncA9V3` | int | 0..32767 | Enchant alternative #9, row 3: minimum value (bonus >= value) |
+| `C_EncA10T1` | int | 0..32767 | Enchant alternative #10, row 1: bonus type (0 = empty row) |
+| `C_EncA10V1` | int | 0..32767 | Enchant alternative #10, row 1: minimum value (bonus >= value) |
+| `C_EncA10T2` | int | 0..32767 | Enchant alternative #10, row 2: bonus type (0 = empty row) |
+| `C_EncA10V2` | int | 0..32767 | Enchant alternative #10, row 2: minimum value (bonus >= value) |
+| `C_EncA10T3` | int | 0..32767 | Enchant alternative #10, row 3: bonus type (0 = empty row) |
+| `C_EncA10V3` | int | 0..32767 | Enchant alternative #10, row 3: minimum value (bonus >= value) |
 
 ### helper
 

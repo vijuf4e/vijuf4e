@@ -1080,6 +1080,70 @@ değerlerle döndürür. Tırnak içindeki adlar bot penceresindeki etiketlerdir
 | `C_AttrDropEnabled` | bool | | Efsun filtresi: Drop (at) tablosu açık |
 | `C_AttrLangTR` | bool | | Efsun adları Türkçe |
 | `C_UseItemBot` | bool | | Use Item çalışıyor |
+| `C_EncMode` | int | 0..1 | Kostüm efsunu işi: 0 = Kostümü dönüştür (70063, efsun sayısı), 1 = Kostümü efsunla (70064, alternatifler) |
+| `C_EncTarget` | int | 1..3 | Dönüştür: kostümde en az bu kadar efsun olunca dur |
+| `C_EncDelayMs` | int | 50..5000 | Kostüm efsunu: her sonuçtan sonra bir sonraki kullanıma kadar bekleme (ms) |
+| `C_EncBuy` | bool | | Kostüm efsunu: bitince Genel Marketten 50'lik deste al (marketin yanında dur; yang yetmezse durur) |
+| `C_EncA1T1` | int | 0..32767 | Efsunla alternatifi #1, satır 1: efsun türü (0 = boş satır) |
+| `C_EncA1V1` | int | 0..32767 | Efsunla alternatifi #1, satır 1: en düşük değer (efsun >= değer) |
+| `C_EncA1T2` | int | 0..32767 | Efsunla alternatifi #1, satır 2: efsun türü (0 = boş satır) |
+| `C_EncA1V2` | int | 0..32767 | Efsunla alternatifi #1, satır 2: en düşük değer (efsun >= değer) |
+| `C_EncA1T3` | int | 0..32767 | Efsunla alternatifi #1, satır 3: efsun türü (0 = boş satır) |
+| `C_EncA1V3` | int | 0..32767 | Efsunla alternatifi #1, satır 3: en düşük değer (efsun >= değer) |
+| `C_EncA2T1` | int | 0..32767 | Efsunla alternatifi #2, satır 1: efsun türü (0 = boş satır) |
+| `C_EncA2V1` | int | 0..32767 | Efsunla alternatifi #2, satır 1: en düşük değer (efsun >= değer) |
+| `C_EncA2T2` | int | 0..32767 | Efsunla alternatifi #2, satır 2: efsun türü (0 = boş satır) |
+| `C_EncA2V2` | int | 0..32767 | Efsunla alternatifi #2, satır 2: en düşük değer (efsun >= değer) |
+| `C_EncA2T3` | int | 0..32767 | Efsunla alternatifi #2, satır 3: efsun türü (0 = boş satır) |
+| `C_EncA2V3` | int | 0..32767 | Efsunla alternatifi #2, satır 3: en düşük değer (efsun >= değer) |
+| `C_EncA3T1` | int | 0..32767 | Efsunla alternatifi #3, satır 1: efsun türü (0 = boş satır) |
+| `C_EncA3V1` | int | 0..32767 | Efsunla alternatifi #3, satır 1: en düşük değer (efsun >= değer) |
+| `C_EncA3T2` | int | 0..32767 | Efsunla alternatifi #3, satır 2: efsun türü (0 = boş satır) |
+| `C_EncA3V2` | int | 0..32767 | Efsunla alternatifi #3, satır 2: en düşük değer (efsun >= değer) |
+| `C_EncA3T3` | int | 0..32767 | Efsunla alternatifi #3, satır 3: efsun türü (0 = boş satır) |
+| `C_EncA3V3` | int | 0..32767 | Efsunla alternatifi #3, satır 3: en düşük değer (efsun >= değer) |
+| `C_EncA4T1` | int | 0..32767 | Efsunla alternatifi #4, satır 1: efsun türü (0 = boş satır) |
+| `C_EncA4V1` | int | 0..32767 | Efsunla alternatifi #4, satır 1: en düşük değer (efsun >= değer) |
+| `C_EncA4T2` | int | 0..32767 | Efsunla alternatifi #4, satır 2: efsun türü (0 = boş satır) |
+| `C_EncA4V2` | int | 0..32767 | Efsunla alternatifi #4, satır 2: en düşük değer (efsun >= değer) |
+| `C_EncA4T3` | int | 0..32767 | Efsunla alternatifi #4, satır 3: efsun türü (0 = boş satır) |
+| `C_EncA4V3` | int | 0..32767 | Efsunla alternatifi #4, satır 3: en düşük değer (efsun >= değer) |
+| `C_EncA5T1` | int | 0..32767 | Efsunla alternatifi #5, satır 1: efsun türü (0 = boş satır) |
+| `C_EncA5V1` | int | 0..32767 | Efsunla alternatifi #5, satır 1: en düşük değer (efsun >= değer) |
+| `C_EncA5T2` | int | 0..32767 | Efsunla alternatifi #5, satır 2: efsun türü (0 = boş satır) |
+| `C_EncA5V2` | int | 0..32767 | Efsunla alternatifi #5, satır 2: en düşük değer (efsun >= değer) |
+| `C_EncA5T3` | int | 0..32767 | Efsunla alternatifi #5, satır 3: efsun türü (0 = boş satır) |
+| `C_EncA5V3` | int | 0..32767 | Efsunla alternatifi #5, satır 3: en düşük değer (efsun >= değer) |
+| `C_EncA6T1` | int | 0..32767 | Efsunla alternatifi #6, satır 1: efsun türü (0 = boş satır) |
+| `C_EncA6V1` | int | 0..32767 | Efsunla alternatifi #6, satır 1: en düşük değer (efsun >= değer) |
+| `C_EncA6T2` | int | 0..32767 | Efsunla alternatifi #6, satır 2: efsun türü (0 = boş satır) |
+| `C_EncA6V2` | int | 0..32767 | Efsunla alternatifi #6, satır 2: en düşük değer (efsun >= değer) |
+| `C_EncA6T3` | int | 0..32767 | Efsunla alternatifi #6, satır 3: efsun türü (0 = boş satır) |
+| `C_EncA6V3` | int | 0..32767 | Efsunla alternatifi #6, satır 3: en düşük değer (efsun >= değer) |
+| `C_EncA7T1` | int | 0..32767 | Efsunla alternatifi #7, satır 1: efsun türü (0 = boş satır) |
+| `C_EncA7V1` | int | 0..32767 | Efsunla alternatifi #7, satır 1: en düşük değer (efsun >= değer) |
+| `C_EncA7T2` | int | 0..32767 | Efsunla alternatifi #7, satır 2: efsun türü (0 = boş satır) |
+| `C_EncA7V2` | int | 0..32767 | Efsunla alternatifi #7, satır 2: en düşük değer (efsun >= değer) |
+| `C_EncA7T3` | int | 0..32767 | Efsunla alternatifi #7, satır 3: efsun türü (0 = boş satır) |
+| `C_EncA7V3` | int | 0..32767 | Efsunla alternatifi #7, satır 3: en düşük değer (efsun >= değer) |
+| `C_EncA8T1` | int | 0..32767 | Efsunla alternatifi #8, satır 1: efsun türü (0 = boş satır) |
+| `C_EncA8V1` | int | 0..32767 | Efsunla alternatifi #8, satır 1: en düşük değer (efsun >= değer) |
+| `C_EncA8T2` | int | 0..32767 | Efsunla alternatifi #8, satır 2: efsun türü (0 = boş satır) |
+| `C_EncA8V2` | int | 0..32767 | Efsunla alternatifi #8, satır 2: en düşük değer (efsun >= değer) |
+| `C_EncA8T3` | int | 0..32767 | Efsunla alternatifi #8, satır 3: efsun türü (0 = boş satır) |
+| `C_EncA8V3` | int | 0..32767 | Efsunla alternatifi #8, satır 3: en düşük değer (efsun >= değer) |
+| `C_EncA9T1` | int | 0..32767 | Efsunla alternatifi #9, satır 1: efsun türü (0 = boş satır) |
+| `C_EncA9V1` | int | 0..32767 | Efsunla alternatifi #9, satır 1: en düşük değer (efsun >= değer) |
+| `C_EncA9T2` | int | 0..32767 | Efsunla alternatifi #9, satır 2: efsun türü (0 = boş satır) |
+| `C_EncA9V2` | int | 0..32767 | Efsunla alternatifi #9, satır 2: en düşük değer (efsun >= değer) |
+| `C_EncA9T3` | int | 0..32767 | Efsunla alternatifi #9, satır 3: efsun türü (0 = boş satır) |
+| `C_EncA9V3` | int | 0..32767 | Efsunla alternatifi #9, satır 3: en düşük değer (efsun >= değer) |
+| `C_EncA10T1` | int | 0..32767 | Efsunla alternatifi #10, satır 1: efsun türü (0 = boş satır) |
+| `C_EncA10V1` | int | 0..32767 | Efsunla alternatifi #10, satır 1: en düşük değer (efsun >= değer) |
+| `C_EncA10T2` | int | 0..32767 | Efsunla alternatifi #10, satır 2: efsun türü (0 = boş satır) |
+| `C_EncA10V2` | int | 0..32767 | Efsunla alternatifi #10, satır 2: en düşük değer (efsun >= değer) |
+| `C_EncA10T3` | int | 0..32767 | Efsunla alternatifi #10, satır 3: efsun türü (0 = boş satır) |
+| `C_EncA10V3` | int | 0..32767 | Efsunla alternatifi #10, satır 3: en düşük değer (efsun >= değer) |
 
 ### helper
 
