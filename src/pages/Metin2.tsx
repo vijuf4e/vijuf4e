@@ -115,7 +115,7 @@ function Summary() {
               className="group block aspect-[1612/872] overflow-hidden rounded-lg border border-border bg-neutral-900"
             >
               <img
-                src={`/metin2/gallery/thumb/${f}.webp`}
+                src={`/metin2/gallery/thumb/${f}.webp?v=${__BUILD_ID__}`}
                 alt=""
                 loading="lazy"
                 className="h-full w-full object-cover object-left-top transition-transform duration-300 group-hover:scale-[1.03]"

@@ -106,8 +106,8 @@ const groups: { id: Group | "all"; label: Text }[] = [
   { id: "panel", label: { tr: "Panel", en: "Panel" } },
 ]
 
-const full = (s: Shot) => `/metin2/gallery/${s.file}.webp`
-const thumb = (s: Shot) => `/metin2/gallery/thumb/${s.file}.webp`
+const full = (s: Shot) => `/metin2/gallery/${s.file}.webp?v=${__BUILD_ID__}`
+const thumb = (s: Shot) => `/metin2/gallery/thumb/${s.file}.webp?v=${__BUILD_ID__}`
 
 export function Gallery() {
   const t = useT()
