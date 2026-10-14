@@ -1268,6 +1268,10 @@ with the current values.
 | `C_SecurityPlayer_CloseGame` | bool | | Player nearby: close game |
 | `C_SecurityPlayer_ChangeChannel` | bool | | Player nearby: change channel |
 | `C_SecurityCHMask` | int | 1..63 | Channels to switch to: bit 1 = CH1, 2 = CH2, 4 = CH3, 8 = CH4, 16 = CH5, 32 = CH6 |
+| `C_SecurityGM_Hide` | bool | | GM nearby: log out for `C_SecurityHideSec` seconds, then log back in |
+| `C_SecurityPlayer_Hide` | bool | | Player nearby: log out for `C_SecurityHideSec` seconds, then log back in |
+| `C_SecurityHideSec` | int | 0..3600 | Seconds to stay logged out; 0 = off (the row acts like Change channel) |
+| `C_SecurityHideNewCH` | bool | | Log back in on a random selected channel instead of the same one (needs `C_SecurityHideSec` > 0) |
 
 ---
 

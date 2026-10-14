@@ -1273,6 +1273,10 @@ değerlerle döndürür. Tırnak içindeki adlar bot penceresindeki etiketlerdir
 | `C_SecurityPlayer_CloseGame` | bool | | Oyuncu yakında: oyunu kapat |
 | `C_SecurityPlayer_ChangeChannel` | bool | | Oyuncu yakında: kanal değiştir |
 | `C_SecurityCHMask` | int | 1..63 | Geçilecek kanallar: bit 1 = CH1, 2 = CH2, 4 = CH3, 8 = CH4, 16 = CH5, 32 = CH6 |
+| `C_SecurityGM_Hide` | bool | | GM yakında: `C_SecurityHideSec` saniye oyundan çık, sonra geri gir |
+| `C_SecurityPlayer_Hide` | bool | | Oyuncu yakında: `C_SecurityHideSec` saniye oyundan çık, sonra geri gir |
+| `C_SecurityHideSec` | int | 0..3600 | Oyun dışında kalınacak saniye; 0 = kapalı (satır Change channel gibi davranır) |
+| `C_SecurityHideNewCH` | bool | | Aynı kanal yerine seçili kanallardan rastgele birine geri gir (`C_SecurityHideSec` > 0 gerekir) |
 
 ---
 
