@@ -651,8 +651,9 @@ Güncel değer: `True`/`False`, int ya da float.
 Bir ayarı bot penceresi gibi değiştirir (aynı yan etkiler, profile kaydedilir).
 Sayılar izin verilen aralığa kırpılır.
 
-- `C_RangeDamage` ile `C_ExploitDamage` ve `C_AutoReviveHere` ile
-  `C_AutoReviveCity` birbirini dışlar.
+- `C_AutoReviveHere` ile `C_AutoReviveCity` birbirini dışlar.
+  `C_ExploitDamage` bir ektir: `C_RangeDamage` ile birlikte açık olabilir
+  (Exploit Main bir hasar kipi ister, Dummy istemez).
 - Rota yüklü değilken `C_RouteActive = True` reddedilir.
 - Betikten bir botu başlatmak ana anahtarı **açmaz**; `C_BotPower`'ı da
   `True` yapın (bot penceresinin Start düğmeleri bunu yapar).
@@ -995,12 +996,11 @@ değerlerle döndürür. Tırnak içindeki adlar bot penceresindeki etiketlerdir
 
 | Ad | Tür | Aralık | Anlamı |
 |---|---|---|---|
-| `C_RangeDamage` | bool | | Hasar kipi **Attack** |
-| `C_ExploitDamage` | bool | | Hasar kipi **Exploit** |
+| `C_RangeDamage` | bool | | Hasar açık (kip `C_AttackMode`'dan; kapalı = **Off**) |
+| `C_AttackMode` | int | 0..2 | Hasar kipi: 0 = **Wait** (yalnızca dibindeki moblar), 1 = **Target** (yalnızca seçili hedef), 2 = **Range** |
+| `C_ExploitDamage` | bool | | Hasar kipinin üstüne **Exploit** |
 | `C_ExploitDamageMode` | int | 0..1 | Exploit rolü: 0 = Main, 1 = Dummy |
-| `C_ExploitAutoSleep` | bool | | Exploit Auto Sleep |
-| `C_ExploitSleepValue` | int | 0..1000 | Auto Sleep kapalıyken Exploit beklemesi (ms) |
-| `C_AttackDelayMs` | int | 50..500 | Saldırı gecikmesi (ms) |
+| `C_AttackDelayMs` | int | 50..500 | Hasar gecikmesi (ms), kip ve Exploit ortak |
 | `C_AttackMaxTargets` | int | 1..30 | "Limit": aynı anda kaç moba vurulur (kare kancası olmayan eski motor en fazla 15) |
 | `C_RangeDistance` | float | 0..100000 | Hasar menzili (Fov) |
 | `C_DmgMob` | bool | | Mobları hedefle |

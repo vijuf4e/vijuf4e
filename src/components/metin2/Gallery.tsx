@@ -14,7 +14,7 @@ const shots: Shot[] = [
   { file: "dll_01_main", group: "client", title: { tr: "Ana sayfa", en: "Main" },
     desc: { tr: "İksir, hız, zoom, dirilme ve hasar ayarları; solda canlı radar ve rota.", en: "Potions, speed, zoom, revive and damage settings; live radar and route on the left." } },
   { file: "dll_01b_main_exploit", group: "client", title: { tr: "Ana sayfa · Exploit", en: "Main · Exploit" },
-    desc: { tr: "Exploit hasar modu: Main / Dummy, otomatik uyku ve uygulanan tempo.", en: "Exploit damage mode: Main / Dummy, auto sleep and the applied tempo." } },
+    desc: { tr: "Hasar kipi (Wait / Target / Range) üstüne Exploit: Main / Dummy, tempo Delay ile ortak.", en: "Exploit on top of the damage mode (Wait / Target / Range): Main / Dummy, tempo shared with Delay." } },
   { file: "dll_02_bots_farm", group: "client", title: { tr: "Bots · Farm Bot", en: "Bots · Farm Bot" },
     desc: { tr: "Rota kaydı ve yönetimi, rota üzerindeki davranışlar ve Level Bot.", en: "Route recording and management, on-route behaviour and the Level Bot." } },
   { file: "dll_03_bots_damage_filter", group: "client", title: { tr: "Bots · Hasar Filtresi", en: "Bots · Damage Filter" },

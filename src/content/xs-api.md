@@ -644,8 +644,9 @@ Current value: `True`/`False`, int or float.
 Changes a setting exactly like the bot window does (the same side effects,
 saved to the profile). Numbers are clamped to the allowed range.
 
-- `C_RangeDamage` and `C_ExploitDamage` exclude each other, as do
-  `C_AutoReviveHere` and `C_AutoReviveCity`.
+- `C_AutoReviveHere` and `C_AutoReviveCity` exclude each other.
+  `C_ExploitDamage` is an add-on: it can be on together with
+  `C_RangeDamage` (Exploit Main needs a damage mode; Dummy does not).
 - `C_RouteActive = True` is refused when no route is loaded.
 - Starting a bot from a script does **not** turn on the main switch; set
   `C_BotPower` to `True` as well (the bot window's Start buttons do this).
@@ -990,12 +991,11 @@ with the current values.
 
 | Name | Type | Range | Meaning |
 |---|---|---|---|
-| `C_RangeDamage` | bool | | Damage mode **Attack** |
-| `C_ExploitDamage` | bool | | Damage mode **Exploit** |
+| `C_RangeDamage` | bool | | Damage on (mode from `C_AttackMode`; off = **Off**) |
+| `C_AttackMode` | int | 0..2 | Damage mode: 0 = **Wait** (only mobs right next to you), 1 = **Target** (only your selected target), 2 = **Range** |
+| `C_ExploitDamage` | bool | | **Exploit** on top of the damage mode |
 | `C_ExploitDamageMode` | int | 0..1 | Exploit role: 0 = Main, 1 = Dummy |
-| `C_ExploitAutoSleep` | bool | | Exploit Auto Sleep |
-| `C_ExploitSleepValue` | int | 0..1000 | Exploit sleep (ms) when Auto Sleep is off |
-| `C_AttackDelayMs` | int | 50..500 | Attack delay (ms) |
+| `C_AttackDelayMs` | int | 50..500 | Damage delay (ms), shared by the mode and Exploit |
 | `C_AttackMaxTargets` | int | 1..30 | Limit: how many mobs are hit at the same time (the old engine without the frame hook caps at 15) |
 | `C_RangeDistance` | float | 0..100000 | Damage range (Fov) |
 | `C_DmgMob` | bool | | Target mobs |
