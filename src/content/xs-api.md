@@ -1152,6 +1152,7 @@ with the current values.
 | `C_AutoRelogMinutes` | int | 1..1440 | Minutes |
 | `C_AutoRestartEnable` | bool | | Restart client every X hours |
 | `C_AutoRestartHours` | int | 1..240 | Hours |
+| `C_HideShops` | bool | | Hide shops (removes market stalls and their signs from the client; turning it off brings them back only when the server sends them again) |
 
 ### event
 

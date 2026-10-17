@@ -1157,6 +1157,7 @@ değerlerle döndürür. Tırnak içindeki adlar bot penceresindeki etiketlerdir
 | `C_AutoRelogMinutes` | int | 1..1440 | Dakika |
 | `C_AutoRestartEnable` | bool | | X saatte bir istemciyi yeniden başlat |
 | `C_AutoRestartHours` | int | 1..240 | Saat |
+| `C_HideShops` | bool | | Pazarları gizle (tezgâhları ve tabelalarını istemciden kaldırır; kapatınca yalnızca sunucu yeniden gönderince geri gelir) |
 
 ### event
 
